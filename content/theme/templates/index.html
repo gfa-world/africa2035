@@ -1,0 +1,354 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block extra_css %}
+    <style>
+        /* Homepage Styles */
+        .homepage-banner {
+            position: relative;
+            height: 700px;
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .homepage-banner-content {
+            padding-left: 2rem;
+        }
+
+        .homepage-title {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            line-height: 1.2;
+            margin-bottom: 0;
+            text-align: left;
+            margin-top: 3rem;
+        }
+
+        .hospital-section {
+            padding: 6rem 0;
+            background-repeat: repeat;
+            background-size: auto;
+        }
+
+
+        .hospital-content h2 {
+            font-size: 2.8rem;
+        }
+
+        .hospital-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .bcmch-section {
+            position: relative;
+            padding: 6rem 0;
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .bcmch-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .bcmch-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bcmch-content h2 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .bcmch-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-facts {
+            margin: 2rem 0;
+        }
+
+        .quick-facts h3 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .facts-list li {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .btn-donate {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 1rem 2rem;
+            font-family: var(--body-font);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-donate:hover {
+            filter: brightness(1.15);
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Bottom section styles */
+        .bottom-section {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .bottom-image {
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .bottom-title {
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .bottom-description {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            max-width: 800px;
+        }
+
+        /* Responsive homepage styles */
+        @media (max-width: 768px) {
+            .homepage-banner {
+                height: 600px;
+                background-attachment: scroll;
+            }
+            
+            .homepage-title {
+                font-size: 2.5rem;
+            }
+            
+            .homepage-banner-content {
+                padding-left: 1rem;
+            }
+            
+            .hospital-content h2,
+            .bcmch-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hospital-section,
+            .bcmch-section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .homepage-banner {
+                height: 500px;
+            }
+            
+            .homepage-title {
+                font-size: 2rem;
+            }
+            
+            .hospital-content h2,
+            .bcmch-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!-- Homepage Banner Section -->
+    <section class="homepage-banner" style="background-image: url('{{ SITEURL }}/images/{% block banner_image %}homepage-header2.webp{% endblock %}');">
+        {% include "includes/menu.html" %}
+        
+        <!-- Homepage Banner Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="homepage-banner-content">
+                        <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/images/logo-africa-2035.svg" alt="Africa 2035" class="logo-svg"></a>
+                        <h1 class="homepage-title">Transforming a continent through Christ-centered healthcare</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hospital Section -->
+    <section class="hospital-section" style="background-image: url('{{ SITEURL }}/images/dotted-background.png');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="{{ SITEURL }}/images/homepage-hospital-drone.webp" alt="Hospital Drone View" class="img-rounded">
+                </div>
+                <div class="col-lg-6">
+                    <div class="hospital-content">
+                        <h2>We are building a hospital, but it's more than that.</h2>
+                        <p>It's about continental transformation.</p>
+                        <p>Our goal is to take much-needed medical care + the Gospel to people across the continent of Africa who are without access to both. The hospital we're building in Rwanda will be an integral part of the ministry currently growing and thriving in the nation, and it will provide inroads across the continent for medical missions.</p>
+                        <p>This rare and unprecedented opportunity started with conversations and a formal invitation from local communities and church leaders in Rwanda to replicate what's been done in Asia.</p>
+                        <p>This is our vision.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="impact-card">
+                        <img src="{{ SITEURL }}/images/homepage-100k-communities.webp" alt="100,000 communities" class="impact-card-image">
+                        <div class="impact-card-content">
+                            <h3 class="impact-card-number">100,000 communities</h3>
+                            <p class="impact-card-text">We want to see communities impacted for eternity, both physically and spiritually, in the name of Jesus Christ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="impact-card">
+                        <img src="{{ SITEURL }}/images/homepage-500k-patients.webp" alt="500,000 patients" class="impact-card-image">
+                        <div class="impact-card-content">
+                            <h3 class="impact-card-number">500,000 patients</h3>
+                            <p class="impact-card-text">We plan on helping over half a million patients receive world-class medical care in the first two years.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="impact-card">
+                        <img src="{{ SITEURL }}/images/homepage-10k-missionaries.webp" alt="10,000 missionaries" class="impact-card-image">
+                        <div class="impact-card-content">
+                            <h3 class="impact-card-number">10,000 missionaries</h3>
+                            <p class="impact-card-text">Our long-term vision is to send missionaries into communities across the continent, planting churches that bring the healing hope of the Gospel to those in need.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+              <a href="{{ SITEURL }}/rwanda-hospital" class="btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="progress-left">
+                        <div class="progress-goal">OUR GOAL</div>
+                        <div class="progress-amount">$100,000,000</div>
+                        {% include "includes/progress-circle.html" %}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="progress-right">
+                        <img src="{{ SITEURL }}/images/logo-africa-2035-black.svg" alt="Africa 2035" class="progress-logo">
+                        <h2 class="progress-title">Together, we can transform communities in Africa. Join us.</h2>
+                        <p class="progress-description">By the Lord's grace, over $25 million has already been identified and secured to make this vision a reality. It takes a total of $100 million to see the goal of the international hospital, medical college and research center fully completed and functioning. Your gift today can help enable a new future for millions of people.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BCMCH Section -->
+    <section class="bcmch-section" style="background-image: url('{{ SITEURL }}/images/homepage-bcmch.webp');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="bcmch-content">
+                        <h2>How do we know this can happen?<br>Because we've done it before.</h2>
+                        <p>We've experienced the incredible life-changing power a hospital brings to a nation through the Believers Church Medical College Hospital (BCMCH) in India.</p>
+                        <p>BCMCH, a 750-bed tertiary hospital that serves about 2,000 people daily, is one of the most trusted hospitals in India.</p>
+                        
+                        <div class="quick-facts">
+                            <h3>Quick facts about BCMCH:</h3>
+                            <ul class="facts-list">
+                                <li>800 medical, nursing and pharmacology students</li>
+                                <li>3 million+ outpatients</li>
+                                <li>233,000+ inpatients</li>
+                                <li>76,000+ surgeries</li>
+                                <li>20 specialties</li>
+                                <li>20 super specialties</li>
+                                <li>55,000+ telehealth consultations</li>
+                                <li>Numerous accreditations and awards, including 2024 NABH Reaccreditation and 2025 Diamond Status from the World Stroke Organization</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="{{ SITEURL }}/bcmch/" class="btn-primary">See what we've already done</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Section -->
+    <section class="bottom-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <img src="{{ SITEURL }}/images/homepage-bottom-churches.webp" alt="Church and community" class="bottom-image">
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <img src="{{ SITEURL }}/images/homepage-bottom-water.webp" alt="Well drilling ministry" class="bottom-image">
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <img src="{{ SITEURL }}/images/homepage-bottom-goats.webp" alt="Family ministry" class="bottom-image">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <h2 class="bottom-title">46 years of seeing God move</h2>
+                    <p class="bottom-description">Since 1979, we've had one focus: sharing the love of Jesus Christ with those who have yet to hear about Him. With more than 15,000 churches established, 40,000 wells drilled and 150,000 families helped each year to break the cycle of poverty, we are bringing Christ's love and hope to more than 18 nations across Africa and Asia.</p>
+                    {# <a href="{{ SITEURL }}/gfa-world/" class="btn-primary">Learn More</a> #}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="{{ SITEURL }}/images/logo-africa-2035.svg" alt="Africa 2035" class="footer-logo">
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>For questions, please contact mikejohnson@gfa.org</p>
+                    <p>
+                        GFA World USA<br>
+                        1116 St. Thomas Way<br>
+                        Wills Point, TX 75169
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Menu JavaScript -->
+    <script src="{{ SITEURL }}/theme/js/menu.js"></script>
+
+{% endblock %}

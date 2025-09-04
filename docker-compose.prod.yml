@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: africa2035-prod
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./output:/usr/share/nginx/html:ro
+      - ./nginx.prod.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro  # For SSL certificates
+    restart: always
+    environment:
+      - NGINX_HOST=your-domain.com
+      - NGINX_PORT=80
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

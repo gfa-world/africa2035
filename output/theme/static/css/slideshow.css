@@ -1,0 +1,96 @@
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 3rem 0;
+    background: #f8f9fa;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slideshow-slides {
+    display: none;
+    width: 100%;
+}
+
+.slideshow-slides.active {
+    display: block;
+}
+
+.slideshow-slides img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Navigation arrows */
+.slideshow-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+    z-index: 2;
+}
+
+.slideshow-nav:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.slideshow-prev {
+    left: 10px;
+}
+
+.slideshow-next {
+    right: 10px;
+}
+
+/* Dots indicator */
+.slideshow-dots {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+}
+
+.slideshow-dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slideshow-dot.active,
+.slideshow-dot:hover {
+    background-color: var(--primary-blue);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .slideshow-slides img {
+        height: 250px;
+    }
+    
+    .slideshow-nav {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+    
+    .slideshow-prev {
+        left: 5px;
+    }
+    
+    .slideshow-next {
+        right: 5px;
+    }
+}
