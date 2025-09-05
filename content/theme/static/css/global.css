@@ -121,9 +121,9 @@ h3 {
 }
 
 
-.btn-success {
-    background-color: white;
-    color: var(--secondary-color);
+.btn-secondary {
+    color: white;
+    background-color: var(--secondary-color);
 }
 
 
@@ -131,8 +131,8 @@ h3 {
 .menu-btn {
   font-family: var(--body-font);
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 30px;
+  right: 50px;
   z-index: 1001;
   background: none;
   border: none;
@@ -453,6 +453,10 @@ img {
   h2 {
     font-size: 2rem;
   }
+
+  .card-box {
+    gap: 2em;
+  }
   
   .profile-image {
     height: 340px;
@@ -485,10 +489,6 @@ img {
   
   .logo-svg {
     width: 150px;
-  }
-
-  .card-box {
-    gap: 2em;
   }
   
   .footer-logo {

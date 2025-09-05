@@ -1,0 +1,586 @@
+{% extends "base.html" %}
+
+{% block title %}GFA World Partnership - {{ SITENAME }}{% endblock %}
+
+{% block description %}Africa 2035 is an initiative of GFA World, bringing Christ's love to transform communities across Africa. Join us in reaching 2+ billion people who haven't heard the Gospel through medical missions and community transformation.{% endblock %}
+
+{% block og_title %}Partnership with GFA World - Africa 2035{% endblock %}
+{% block og_description %}Africa 2035 is an initiative of GFA World, bringing Christ's love to transform communities across Africa. Join us in reaching 2+ billion people who haven't heard the Gospel through medical missions and community transformation.{% endblock %}
+{% block og_url %}{{ SITEURL }}/gfa-world/{% endblock %}
+
+{% block twitter_title %}Partnership with GFA World - Africa 2035{% endblock %}
+{% block twitter_description %}Africa 2035 is an initiative of GFA World, bringing Christ's love to transform communities across Africa. Join us in reaching 2+ billion people who haven't heard the Gospel through medical missions and community transformation.{% endblock %}
+
+{% block extra_css %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+    /* Full Screen Banner */
+    .hero-banner {
+        position: relative;
+        height: 100vh;
+        background: url('{{ SITEURL }}/images/gfa-world/gfa-world-header.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    
+    /* Hero logo styling */
+    .hero-logo {
+        width: 400px;
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+    
+    /* Quote styling */
+    .hero-quote {
+        font-family: 'DM Serif Display', serif;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 2.5rem;
+        line-height: 1.3;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .hero-attribution {
+        margin-top: 2rem;
+        font-size: 1.7rem;
+        opacity: 0.9;
+    }
+
+    h1 {
+      color: var(--text-dark);
+      text-shadow: none;
+    }
+
+    p.lead {
+      font-weight: 600;
+    }
+    
+    /* Use global bg-light variable */
+    .bg-light-custom {
+        background: var(--bg-light);
+    }
+    
+    .bg-dotted {
+        background: url('{{ SITEURL }}/images/dotted-background.png');
+    }
+    
+    /* Blue stat cards matching reference */
+    .stat-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        margin-bottom: 2rem;
+        position: relative;
+        background: #2E5F8A;
+    }
+    
+    .stat-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .stat-card-overlay {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(52, 73, 94, 0.9);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    
+    .stat-card-content {
+        color: white;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 200px;
+    }
+    
+    .stat-card h4 {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        opacity: 0.9;
+    }
+    
+    .stat-number {
+        font-family: var(--heading-font);
+        font-size: 3.8rem;
+        font-weight: 600;
+        color: white;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-text {
+        font-size: 1rem;
+        color: white;
+        opacity: 0.9;
+        line-height: 1.4;
+    }
+    
+    /* Horizontal card for National Missionaries - matches reference */
+    .horizontal-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 3rem;
+        position: relative;
+    }
+    
+    .horizontal-card img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+    
+    .horizontal-card-overlay {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(169, 34, 60, 0.9);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    
+    .horizontal-card-content {
+        background: #B73E56;
+        color: white;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+    
+    .horizontal-card h3 {
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        opacity: 0.9;
+    }
+    
+    .horizontal-card .stat-number {
+        color: white;
+        font-size: 5.2rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .horizontal-card .stat-text {
+        color: white;
+        font-size: 1.4rem;
+        margin-bottom:1rem;
+    }
+    
+    /* YouTube embed responsive */
+    .youtube-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+    
+    .youtube-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 12px;
+    }
+    
+    /* Quote styling for sections */
+    .section-quote {
+        font-family: 'DM Serif Display', serif;
+        font-style: italic;
+        font-size: 1.3rem;
+        line-height: 1.5;
+        color: var(--text-dark);
+        margin: 2rem 0 0.5rem;
+    }
+    
+    /* Action columns */
+    .action-columns {
+        padding: 3rem 0;
+    }
+    
+    .action-column {
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    
+    .action-icon {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .action-column h4 {
+        font-family: var(--heading-font);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+    }
+    
+    /* Custom button override for external links */
+    .btn-external {
+        background-color: var(--primary-blue);
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0.5rem 0.25rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-external:hover {
+        background-color: var(--secondary-color);
+        color: white;
+        text-decoration: none;
+        transform: translateY(-2px);
+    }
+    
+    
+    .podcast-links img {
+        max-width: 200px;
+        margin: 0.5rem;
+    }
+    
+    /* Links section */
+    .links-section {
+        background-color: #444;
+        padding: 4rem 0;
+    }
+    
+    .links-section h2 {
+        color: white;
+    }
+    
+    .links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .links-grid a {
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero-quote {
+            font-size: 1.8rem;
+        }
+        
+        .horizontal-card-content {
+            padding: 2rem;
+        }
+        
+        .section-padding {
+            padding: 3rem 0;
+        }
+        
+        .hero-banner {
+            padding: 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ SITEURL }}/images/gfa-world/gfa-world-header.webp');
+            background-size: cover;
+            background-position: 65% center;
+            background-attachment: fixed;
+        }
+
+        .btn-primary, .btn-secondary {
+          display: block;
+          width: 100%;
+        }
+
+        .action-column {
+          margin-bottom: 3rem;
+        }
+
+
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-banner">
+    {% include "includes/menu.html" %}
+    
+    <!-- Logo and Quote Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <a href="{{ SITEURL }}/">
+                    <img src="{{ SITEURL }}/images/logo-africa-2035-gfa-world.svg" alt="Africa 2035 + GFA World" class="hero-logo">
+                </a>
+                <div class="hero-quote">
+                    "Our number one priority must be, 'Lord, I love You and as a result I give all to touch the lost world.'"
+                </div>
+                <div class="hero-attribution">
+                    K.P. Yohannan<br>
+                    Founder of GFA World, 1950-2024
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Partner with GFA World Section -->
+<section class="section-padding">
+    <div class="container">
+        <h1 class="text-center mb-5">Why Partner with GFA World?</h1>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <div class="youtube-wrapper">
+                    <iframe src="https://www.youtube.com/embed/DTfB5IPrhuQ" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <p class="lead mb-4">
+                    Africa 2035 is an initiative of GFA World, a Christian missions organization seeking to transform communities through Christ's love throughout the world.
+                </p>
+                <p class="mb-3">
+                    More than 2 billion people have not heard of Christ's love.
+                </p>
+                <p class="mb-3">
+                    Daily about 66,000 people die without hearing the Gospel once.
+                </p>
+                <p class="mb-3">
+                    We want to change that.
+                </p>
+                <p>
+                    Our passion is to share Christ's love with as many people as possible while there is still time.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GFA World Impact Section -->
+<section class="section-padding bg-light-custom">
+    <div class="container">
+        <h2 class="text-center mb-5">GFA World is Bringing Hope to Those Who've Never Heard Christ's Love</h2>
+        
+        <!-- National Missionaries Horizontal Card -->
+        <div class="horizontal-card">
+            <div class="row g-0 align-items-stretch">
+                <div class="col-md-6 position-relative">
+                    <img src="{{ SITEURL }}/images/gfa-world/tiles-church.webp" alt="Churches">
+                    <div class="horizontal-card-overlay">NATIONAL MISSIONARIES</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="horizontal-card-content">
+                        <div class="row big-stats">
+                            <div class="stat-number">15,000+</div>
+                            <div class="stat-text">churches established</div>
+                            <div class="stat-number">100,000+</div>
+                            <div class="stat-text">young people trained since 1979</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Three Cards Row -->
+        <div class="row card-box">
+            <div class="col-lg-4">
+                <div class="stat-card">
+                    <div class="position-relative">
+                        <img src="{{ SITEURL }}/images/gfa-world/tiles-children.webp" alt="Helping Children">
+                        <div class="stat-card-overlay">HELPING CHILDREN</div>
+                    </div>
+                    <div class="stat-card-content">
+                        <div class="stat-number">142,000</div>
+                        <div class="stat-text">children and their communities have been helped through GFA World's Child Sponsorship Program since 2004</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="stat-card">
+                    <div class="position-relative">
+                        <img src="{{ SITEURL }}/images/gfa-world/tiles-water.webp" alt="Transforming Communities">
+                        <div class="stat-card-overlay">TRANSFORMING COMMUNITIES</div>
+                    </div>
+                    <div class="stat-card-content">
+                        <div class="stat-number">39 million</div>
+                        <div class="stat-text">people have received safe, pure drinking water through GFA World's clean water projects</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="stat-card">
+                    <div class="position-relative">
+                        <img src="{{ SITEURL }}/images/gfa-world/tiles-disaster-relief.webp" alt="Disaster Relief">
+                        <div class="stat-card-overlay">DISASTER RELIEF</div>
+                    </div>
+                    <div class="stat-card-content">
+                        <div class="stat-number">40.4 tons</div>
+                        <div class="stat-text">of relief supplies distributed in a year to flood victims in Sri Lanka, India and Nepal.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Live in Light of Eternity Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <img src="{{ SITEURL }}/images/gfa-world/prayer-maps.webp" alt="Prayer Maps" class="img-rounded">
+            </div>
+            <div class="col-lg-6">
+                <h2>Live in Light of Eternity</h2>
+                <p class="mb-4">
+                    You can be one who looks up, hears the cries of those perishing and rescue them before it's too late. Christ came to seek and save the lost and He asks His follows to walk in His footsteps. Pray with us and be strengthened in your walk through these resources.
+                </p>
+                <div class="section-quote">
+                    "Soon, time will be no more. And you will face the Lord of glory face to face."
+                </div>
+                <p>—K.P. Yohannan, Founder of GFA World</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Action Columns -->
+<section class="action-columns">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="action-column">
+                    <img src="{{ SITEURL }}/images/gfa-world/icon-pray.svg" alt="Pray" class="action-icon">
+                    <h4>Pray</h4>
+                    <p>Impact someone's eternity from right where you are</p>
+                    <a href="https://www.gfa.org/pray/" class="btn-secondary" target="_blank">Pray with us</a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="action-column">
+                    <img src="{{ SITEURL }}/images/gfa-world/icon-read.svg" alt="Read" class="action-icon">
+                    <h4>Read</h4>
+                    <p><em>Revolution in World Missions</em> will ignite your passion to make a difference. Listen to the audiobook or download the EPUB below.</p>
+                    <div class="podcast-links">
+                        <a href="https://podcasts.apple.com/us/podcast/revolution-in-world-missions-audiobook/id1674670197" target="_blank">
+                            <img src="{{ SITEURL }}/images/gfa-world/listen-on-apple-podcasts.webp" alt="Listen on Apple Podcasts">
+                        </a>
+                        <a href="https://open.spotify.com/show/2vpaZh12Jp0v94mGlqHwBU?si=0f26468e06ec4223" target="_blank">
+                            <img src="{{ SITEURL }}/images/gfa-world/listen-on-spotify.webp" alt="Listen on Spotify">
+                        </a>
+                    </div>
+                    <a href="https://www.gfamedia.org/downloads/revolution/Revolution-In-World-Missions-KP-Yohannan-prt.epub" class="btn-secondary" target="_blank">EPUB</a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="action-column">
+                    <img src="{{ SITEURL }}/images/gfa-world/icon-watch.svg" alt="Watch" class="action-icon">
+                    <h4>Watch</h4>
+                    <p>Watch our founder, K.P. Yohannan, share from his heart and be challenged to give your all for Christ.</p>
+                    <a href="https://www.youtube.com/watch?v=ygu4LXnbYco" target="_blank">
+                        <img src="{{ SITEURL }}/images/gfa-world/watch-on-youtube.webp" alt="Watch on YouTube" class="img-rounded">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Be the Answer Section -->
+<section class="section-padding bg-dotted">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <img src="{{ SITEURL }}/images/homepage-hospital-drone.webp" alt="Rwanda Hospital" class="img-rounded">
+            </div>
+            <div class="col-lg-6">
+                <h2>Be the Answer for Those Still Waiting</h2>
+                <p class="mb-4">
+                    As our work in Rwanda began, K.P. Yohannan (Metropolitan Yohan) shared, "We are looking at the whole continent… our goal is hopefully in the days to come we will be able to see thousands of worshipping communities transformed as we care for the poor and needy, in the name of our Lord."
+                </p>
+                <p class="mb-4">
+                    Rwanda is just the beginning of an exciting new missions frontier for GFA World. We plan to expand ministry to six other nations in Africa during the next few years.
+                </p>
+                <a href="{{ SITEURL }}/rwanda-hospital/" class="btn-primary">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- More about GFA World Links -->
+<section class="links-section">
+    <div class="container">
+        <h2 class="text-center mb-5">More about GFA World</h2>
+        <div class="links-grid">
+            <a href="https://www.gfa.org/40-years/" target="_blank">History of GFA</a>
+            <a href="https://www.gfa.org/about/financial-integrity/" target="_blank">Financial Integrity</a>
+            <a href="https://www.gfa.org/regions/" target="_blank">Where We Work</a>
+            <a href="https://www.gfa.org/about/endorsements/" target="_blank">Endorsements</a>
+            <a href="https://www.gfa.org/about/what-we-believe/" target="_blank">What We Believe</a>
+            <a href="https://www.gfa.org/about/kpyohannan/" target="_blank">Founder</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="{{ SITEURL }}/images/logo-africa-2035.svg" alt="Africa 2035" class="footer-logo">
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p>For questions, please contact mikejohnson@gfa.org</p>
+                <p>
+                    GFA World USA<br>
+                    1116 St. Thomas Way<br>
+                    Wills Point, TX 75169
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ SITEURL }}/theme/js/menu.js"></script>
+{% endblock %}
