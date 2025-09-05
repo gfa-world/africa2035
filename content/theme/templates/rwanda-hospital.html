@@ -202,6 +202,12 @@
         bottom: 0;
         background: rgba(0, 0, 0, 0.3);
     }
+
+    @media (max-width: 767px) {
+      .need-section::before {
+        background: rgba(0, 0, 0, 0.7);
+      }
+    }
     
     .need-content {
         position: relative;
@@ -392,20 +398,26 @@
         .video-container {
             height: 300px;
         }
+
+
+        .section-padding,
+        .timeline-section {
+          padding-bottom: 0;
+        }
         
         .timeline::before {
-            left: 20px;
+            left: 60px;
         }
         
         .timeline-item {
-            padding-left: 60px !important;
+            padding-left: 120px !important;
             padding-right: 0 !important;
             text-align: left !important;
         }
         
         .timeline-image,
         .timeline-dot {
-            left: 20px;
+            left: 60px;
         }
     }
 </style>
@@ -443,7 +455,7 @@
 <section class="medical-complex-section full-width-section">
     <div class="container">
         <h2 class="section-title">Planned Medical Complex</h2>
-        <div class="row">
+        <div class="row card-box">
             <div class="col-lg-4 col-md-6">
                 <div class="medical-card">
                     <div class="medical-card-image-container">

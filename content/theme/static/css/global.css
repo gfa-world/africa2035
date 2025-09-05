@@ -71,8 +71,10 @@ h3 {
   gap: 2rem;
 }
 
-.banner-content h1 {
-  font-size: 80pt;
+@media (min-width: 768px) {
+  .banner-content h1 {
+    font-size: 80pt;
+  }
 }
 
 /* Logo styles */
@@ -459,6 +461,11 @@ img {
   .logo-svg {
     width: 150px;
   }
+
+  img.img-rounded {
+    margin-bottom: 1rem;
+  }
+  
 }
 
 @media (max-width: 576px) {
