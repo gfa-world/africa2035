@@ -10,7 +10,7 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 # Production settings
-SITEURL = 'https://your-domain.com'  # Change this to your actual domain
+SITEURL = ''  # Cloudflare Pages will handle the domain
 RELATIVE_URLS = False
 
 # Feed generation for production
