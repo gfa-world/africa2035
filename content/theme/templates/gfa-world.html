@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}GFA World Partnership - {{ SITENAME }}{% endblock %}
+{% block title %}About Us - {{ SITENAME }}{% endblock %}
 
 {% block description %}Africa 2035 is an initiative of GFA World, bringing Christ's love to transform communities across Africa. Join us in reaching 2+ billion people who haven't heard the Gospel through medical missions and community transformation.{% endblock %}
 
@@ -230,7 +230,7 @@
     
     /* Action columns */
     .action-columns {
-        padding: 3rem 0;
+        padding-bottom: 3rem;
     }
     
     .action-column {
@@ -302,12 +302,24 @@
         text-decoration: none;
         color: white;
         font-weight: 500;
+        transition: 0.3s;
+    }
+    .links-grid a:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
     
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .hero-quote {
             font-size: 1.8rem;
+        }
+
+        .hero-logo {
+          margin-bottom: 10rem;
+        }
+
+        .hero-attribution {
+          font-size: 1.2rem;
         }
         
         .horizontal-card-content {
@@ -323,11 +335,11 @@
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ SITEURL }}/images/gfa-world/gfa-world-header.webp');
             background-size: cover;
             background-position: 65% center;
-            background-attachment: fixed;
         }
 
         .btn-primary, .btn-secondary {
           display: block;
+          text-align: center;
           width: 100%;
         }
 
@@ -454,7 +466,7 @@
                     </div>
                     <div class="stat-card-content">
                         <div class="stat-number">40.4 tons</div>
-                        <div class="stat-text">of relief supplies distributed in a year to flood victims in Sri Lanka, India and Nepal.</div>
+                        <div class="stat-text">of relief supplies distributed to flood victims in Sri Lanka, India and Nepal in one year.</div>
                     </div>
                 </div>
             </div>
@@ -472,7 +484,9 @@
             <div class="col-lg-6">
                 <h2>Live in Light of Eternity</h2>
                 <p class="mb-4">
-                    You can be one who looks up, hears the cries of those perishing and rescue them before it's too late. Christ came to seek and save the lost and He asks His follows to walk in His footsteps. Pray with us and be strengthened in your walk through these resources.
+                <p>You can be one who looks up, hears the cries of those perishing and rescues them before it’s too late. Christ came to seek and save those without Him, and He asks us to follow in His footsteps. </p>
+                <p>These resources inspire a life that is eternity-focused. Watch, read and open your heart to all that God will do. </p>
+
                 </p>
                 <div class="section-quote">
                     "Soon, time will be no more. And you will face the Lord of glory face to face."
@@ -528,18 +542,18 @@
 <!-- Be the Answer Section -->
 <section class="section-padding bg-dotted">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row">
             <div class="col-lg-6 mb-4">
                 <img src="{{ SITEURL }}/images/homepage-hospital-drone.webp" alt="Rwanda Hospital" class="img-rounded">
             </div>
             <div class="col-lg-6">
-                <h2>Be the Answer for Those Still Waiting</h2>
-                <p class="mb-4">
-                    As our work in Rwanda began, K.P. Yohannan (Metropolitan Yohan) shared, "We are looking at the whole continent… our goal is hopefully in the days to come we will be able to see thousands of worshipping communities transformed as we care for the poor and needy, in the name of our Lord."
-                </p>
-                <p class="mb-4">
-                    Rwanda is just the beginning of an exciting new missions frontier for GFA World. We plan to expand ministry to six other nations in Africa during the next few years.
-                </p>
+                <h2>You Can Be the Answer for Those Still Waiting</h2>
+                <p>The opportunity is now. The Lord has established unprecedented open doors for us in Rwanda, providing a Bible college, our first congregation and a robust children’s ministry. </p>
+                <p>Our medical university and hospital in Rwanda is a major step for an expanded work across Africa offering advanced healthcare for those in need.  </p>
+                <p>We plan to expand ministry to six other nations in Africa during the next few years and already have begun working in Liberia. </p>
+                <p><strong>The Rwanda medical facilities are crucial for an expansive solid work to transforming communities across the continent.</strong></p>
+                <p>Be a part of what God is doing in Africa. </p>
+
                 <a href="{{ SITEURL }}/rwanda-hospital/" class="btn-primary">Learn More</a>
             </div>
         </div>
@@ -561,24 +575,7 @@
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <img src="{{ SITEURL }}/images/logo-africa-2035.svg" alt="Africa 2035" class="footer-logo">
-            </div>
-            <div class="col-md-6 text-md-end">
-                <p>For questions, please contact mikejohnson@gfa.org</p>
-                <p>
-                    GFA World USA<br>
-                    1116 St. Thomas Way<br>
-                    Wills Point, TX 75169
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+{% include "includes/footer.html" %}
 {% endblock %}
 
 {% block extra_js %}
