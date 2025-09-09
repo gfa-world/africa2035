@@ -12,9 +12,12 @@
 {% block twitter_description %}Discover the Believers International Hospital and Medical University being built in Rwanda. This $100 million project will serve 500,000 patients, train medical professionals, and transform healthcare across Africa through Christ-centered care.{% endblock %}
 
 {% block banner_image %}rwanda/our-vision-header.webp{% endblock %}
-{% block page_title %}Our Vision{% endblock %}
+{% block page_title %}The Opportunity is Now{% endblock %}
 
 {% block extra_css %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
 <style>
     /* Rwanda Hospital Page Styles */
     /* Break out of parent container for full-width sections */
@@ -47,6 +50,28 @@
         line-height: 1.6;
         color: var(--text-dark);
         margin-bottom: 2rem;
+    }
+
+    main.section-padding {
+      padding-top: 2rem;
+    }
+
+    .quote-row {
+      padding-bottom: 3rem;
+    }
+
+    .quote {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.8rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .attribution {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #888;
     }
     
     .video-container {
@@ -436,6 +461,12 @@
 <!-- Intro Section -->
 <section class="intro-section full-width-section">
     <div class="container">
+        <div class="row justify-content-center quote-row">
+          <div class="col-sm-10">
+            <p class="quote">“This hospital and medical school is of extreme importance. We have an unprecedented opportunity to see people helped and bring the hope of Christ to these African countries.”</p>
+            <p class="attribution">K.P. Yohannan<br> Founder of GFA World, 1950-2024</p>
+          </div>
+        </div>
         <div class="row">
             <div class="col-lg-6">
                 <div class="intro-left">
