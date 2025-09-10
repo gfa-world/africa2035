@@ -14,6 +14,11 @@
   --body-font: 'DM Sans', sans-serif;
 }
 
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 /* Base Typography */
 body {
   font-family: var(--body-font);
@@ -52,8 +57,9 @@ h3 {
   background-attachment: fixed;
   position: relative;
   height: 600px;
-  background-size: cover auto;
+  background-size: 100% auto;
   background-position: center top;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,6 +75,12 @@ h3 {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+}
+
+@media (max-width: 767px) {
+  .banner-section {
+    background-size: cover;
+  }
 }
 
 @media (min-width: 768px) {

@@ -32,9 +32,11 @@
     
     .intro-section {
         background: white;
+        padding-bottom: 4rem;
     }
     
-    .intro-left {
+    .intro-left, 
+    .map-left {
         padding-right: 2rem;
     }
     
@@ -50,6 +52,11 @@
         line-height: 1.6;
         color: var(--text-dark);
         margin-bottom: 2rem;
+    }
+
+    .intro-text.bigger {
+      font-weight: 600;
+      font-size: 1.5rem;
     }
 
     main.section-padding {
@@ -86,7 +93,10 @@
         height: 100%;
         object-fit: cover;
     }
-    
+
+    .map-section {
+      padding: 3rem 0 2rem;
+    }    
     .medical-complex-section {
         padding: 6rem 0;
         background-image: url('{{ SITEURL }}/images/dotted-background.png');
@@ -213,119 +223,18 @@
       margin-bottom: 0;
     }
 
+    .current-snapshot-section hr {
+      margin-top: 6rem;
+    }
+
     .snapshot-text {
       margin-top: 1rem;
     }
     
-
-    .need-section {
-        padding: 6rem 0;
-        background-image: url('{{ SITEURL }}/images/rwanda/need-is-vast.webp');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        position: relative;
-    }
-    
-    .need-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
-    }
-
-    @media (max-width: 767px) {
-      .need-section::before {
-        background: rgba(0, 0, 0, 0.7);
-      }
-    }
-    
-    .need-content {
-        position: relative;
-        z-index: 2;
-    }
-    
-    
-    .need-list {
-        list-style: none;
-        padding: 0;
-        margin: 2rem 0;
-    }
-    
-    .need-list li {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-        padding-left: 1.5rem;
-        position: relative;
-    }
-    
-    .need-list li::before {
-        content: "•";
-        color: white;
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-    }
     
     .going-forward-section {
         padding: 6rem 0;
         background: var(--bg-light);
-    }
-    
-    .vision-cards {
-        margin-top: 4rem;
-    }
-    
-    .vision-cards .row {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    .vision-cards .col-lg-4 {
-        display: flex;
-        margin-bottom: 2rem;
-    }
-    
-    .vision-card {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .vision-card-image {
-        width: 100%;
-        height: 230px;
-        object-fit: cover;
-    }
-    
-    .vision-card-content {
-        padding: 2rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .vision-card-title {
-        font-family: var(--heading-font);
-        font-size: 2.4rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        margin-bottom: 1rem;
-    }
-    
-    .vision-card-text {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: var(--text-dark);
-        flex: 1;
     }
     
     .opportunity-text {
@@ -337,97 +246,19 @@
         margin: 4rem auto 0;
     }
     
-    .timeline-section {
-        padding: 6rem 0;
-        background: white;
-    }
-    
-    .timeline {
-        position: relative;
-        margin: 0 auto;
-    }
-    
-    .timeline::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        background: var(--secondary-color);
-        transform: translateX(-50%);
-    }
-    
-    .timeline-item {
-        position: relative;
-        margin-bottom: 4rem;
-    }
-    
-    .timeline-item:nth-child(odd) {
-        padding-right: calc(50% + 90px);
-        text-align: right;
-    }
-    
-    .timeline-item:nth-child(even) {
-        padding-left: calc(50% + 90px);
-        text-align: left;
-    }
-    
-    .timeline-content {
-        background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        position: relative;
-    }
-    
-    .timeline-year {
-        font-family: var(--heading-font);
-        font-size: 2.5rem;
-        font-weight: 600;
-        color: var(--secondary-color);
-        margin-bottom: 1rem;
-    }
-    
-    .timeline-text {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: var(--text-dark);
-    }
-    
-    .timeline-image {
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        object-fit: cover;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        border: 4px solid var(--secondary-color);
-        background: white;
-    }
-    
-    .timeline-dot {
-        width: 70px;
-        height: 70px;
-        background: var(--secondary-color);
-        border-radius: 50%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        border: 10px solid white;
-        box-shadow: 0 0 0 4px var(--secondary-color);
-    }
     
     /* Mobile responsiveness */
     @media (max-width: 768px) {
+        .map-left,   
         .intro-left {
             padding-right: 0;
             text-align: center;
             margin-bottom: 2rem;
         }
+
+        .going-forward-section img {
+          margin: 2rem 0 3rem;
+        }    
         
         .video-container {
             height: 300px;
@@ -437,21 +268,6 @@
         .section-padding,
         .timeline-section {
           padding-bottom: 0;
-        }
-        
-        .timeline::before {
-            left: 60px;
-        }
-        
-        .timeline-item {
-            padding-left: 120px !important;
-            padding-right: 0 !important;
-            text-align: left !important;
-        }
-        
-        .timeline-image,
-        .timeline-dot {
-            left: 60px;
         }
     }
 </style>
@@ -467,15 +283,15 @@
             <p class="attribution">K.P. Yohannan<br> Founder of GFA World, 1950-2024</p>
           </div>
         </div>
-        <div class="row">
-            <div class="col-lg-6">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
                 <div class="intro-left">
-                    <img src="{{ SITEURL }}/images/africa-rwanda-map.svg" alt="Rwanda Map" class="intro-map">
+                    <img src="{{ SITEURL }}/images/rwanda/hospital-rendering.webp" alt="Rendering of Rwanda Hospital" class="img-rounded">
                 </div>
             </div>
-            <div class="col-lg-6">
-                <p class="intro-text">By God's grace, we are in the process of building a world-class hospital and medical University in Kigali, Rwanda, that will become a base to train and send thousands of medical professionals, advance medical research—and transform communities in need throughout Africa, all in the name of Jesus Christ.</p>
-                <p class="intro-text">You can be part of this unprecedented opportunity to bring life-saving healing and hope to the people of Africa.</p>
+            <div class="col-sm-6">
+                <p class="intro-text bigger">We are in the process of building a world-class hospital and medical university in Kigali, Rwanda.</p>
+                <p class="intro-text">It will be a base to train and send thousands of medical professionals, advance medical research—and transform communities.</p>
             </div>
         </div>
     </div>
@@ -488,6 +304,24 @@
             <source src="{{ SITEURL }}/images/rwanda/hospital-drone-footage.webm" type="video/webm">
             Your browser does not support the video tag.
         </video>
+    </div>
+</section>
+
+<section class="map-section full-width-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="map-left">
+                    <img src="{{ SITEURL }}/images/africa-rwanda-map.svg" alt="Rwanda Map" class="intro-map">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h2>The Need of Africa is Vast</h2>
+                <p>Approximately 1.6 million Africans died of malaria, tuberculosis and HIV-related illnesses in 1 year</p>
+                <p>160 million are people still waiting to hear the Good News</p>
+                <p>We will provide the urgently needed world class healthcare while also building a foundation to bring the help and care of Christ to the nations of Africa.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -587,6 +421,30 @@
     </div>
 </section>
 
+<!-- Going Forward Section -->
+<section class="going-forward-section full-width-section">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-6 order-sm-2">
+            <img src="{{ SITEURL }}/images/rwanda/going-forward.webp" alt="Going Forward" class="img-rounded">
+          </div>
+          <div class="col-sm-6 order-sm-1">
+            <h2>Going Forward</h2>
+            <p>The establishment of the hospital and medical college in Rwanda will provide the foundation for transformational missions work to begin throughout Africa. Through this endeavor the Lord will provide ongoing relationships with communities that, otherwise, we may never have been able to connect with.</p>
+            <p>The opportunity to purposefully extend Christ's compassion and hope to areas in need is unprecedented.</p>
+            <p>Our vision for Africa is...</p>
+            <ul>
+              <li>provide clean water to at least 30 million people.</li>
+              <li>impact 100,000 communities for Christ through word and deed over the next 10 years.</li>
+              <li>to train at least 10,000 African missionaries to show the love of Christ in communities across the continent.</li>
+            </ul>
+
+          </div>
+        </div>
+        
+    </div>
+</section>
+
 <!-- Current Snapshot Section -->
 <section class="current-snapshot-section full-width-section">
     <div class="container">
@@ -595,184 +453,16 @@
           <h2 class="section-title">Current Snapshot</h2>
           {% include "includes/progress-circle.html" %}
               <p>It will take a total of $100 million to see the goal of the international hospital, medical college and research centre fully completed and functioning.* By the Lord's grace, over $25 million has already been identified and secured to make this vision a reality.</p>
-              <p>By joining us in this endeavor, your investment will result in lives saved—here and for eternity.</p>
               <p><small>*Each year a phase is delayed adds $5 to $10 million to the cost of the project.</small></p>
+            <hr>
+            <p class="opportunity-text"><strong>This is a unique opportunity to partner with the city of Kigali, Rwanda and bring a continental shift in medical care and missions for generations to come.</strong> We hope you will pray and consider joining us in this unique opportunity that is before you, and respond as the Lord leads.</p>
         </div>
       </div>
     </div>
 </section>
 
-<!-- Need Section -->
-<section class="need-section full-width-section">
-    <div class="container">
-        <div class="need-content">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="need-text-column">
-                        <h2 class="section-title" style="color: white; margin-bottom: 2rem; text-align: left;">The Need in Africa is Vast</h2>
-                        <ul class="need-list">
-                            <li>375,000 people in Africa die each year from malaria, a disease that can be prevented and cured if treated promptly</li>
-                            <li>Less than 2% of the medicine used in Africa is produced domestically—98% must be imported</li>
-                            <li>More than 50% of African children under 15 suffer from starvation, sickness and poverty</li>
-                        </ul>
-                        <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 2rem;">Furthermore, millions of people on this continent have never heard even one time that God loves them. Eleven of the world's least-evangelized groups of people are in Africa. <strong>It is estimated that more than 160 million people here are still waiting to hear the Good News.</strong></p>
-                        <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 2rem;"><strong>We're already providing care to the people of Rwanda. This hospital will amplify it.</strong></p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <!-- Empty column for image space -->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Going Forward Section -->
-<section class="going-forward-section full-width-section">
-    <div class="container">
-        <h2 class="section-title">Going Forward</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">The establishment of the hospital and medical university in Rwanda will provide the foundation for transformational missions work to begin throughout Africa. We have long been committed to reaching those without hope in this world and the next with the love of Christ in word and deed. And as BIHMU becomes more and more self-sustaining, it will be able to directly enable community transformation projects and compassion-driven ministry around the continent.</p>
-                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">The hospital in Rwanda will be a tremendous resource beyond the borders of the country for those who will travel to the hospital from other countries, as well as through the use of telemedicine.</p>
-                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">We believe that through this endeavor the Lord will provide ongoing relationships with communities that, otherwise, we may never have been able to connect with. The opportunity to purposefully extend Christ's compassion and hope to areas in need is unprecedented.</p>
-                <p style="font-size: 1.1rem; line-height: 1.6;">Following Christ's example of compassion, we aim to provide healing for body, soul and spirit. Wherever and however we administer compassion, we also administer God's love.</p>
-            </div>
-        </div>
-        
-        <div class="vision-cards">
-            <h3 style="text-align: center; font-family: var(--heading-font); font-size: 2rem; margin-bottom: 3rem;">Our Vision for Africa</h3>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="vision-card">
-                        <img src="{{ SITEURL }}/images/rwanda/vision-missionaries.webp" alt="10,000 missionaries" class="vision-card-image">
-                        <div class="vision-card-content">
-                            <h4 class="vision-card-title">10,000 missionaries</h4>
-                            <p class="vision-card-text">Our long-term vision is to send missionaries into communities across the continent, planting churches that bring the healing hope of the Gospel to those in need.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="vision-card">
-                        <img src="{{ SITEURL }}/images/rwanda/vision-clean-water.webp" alt="Clean Water" class="vision-card-image">
-                        <div class="vision-card-content">
-                            <h4 class="vision-card-title">Clean Water for 30 million people</h4>
-                            <p class="vision-card-text">Clean water is essential to a thriving community, and our goal is to provide that life-saving water to 30 million people.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="vision-card">
-                        <img src="{{ SITEURL }}/images/rwanda/vision-communities.webp" alt="100,000 communities" class="vision-card-image">
-                        <div class="vision-card-content">
-                            <h4 class="vision-card-title">100,000 communities</h4>
-                            <p class="vision-card-text">We want to see communities impacted for eternity, both physically and spiritually, in the name of Jesus Christ.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <p class="opportunity-text">This is a unique opportunity to partner with the city of Kigali, Rwanda and bring a continental shift in medical care and missions for generations to come. We hope you will pray and consider joining us in this unique opportunity that is before you, and respond as the Lord leads.</p>
-    </div>
-</section>
 
-<!-- Timeline Section -->
-<section class="timeline-section full-width-section">
-    <div class="container">
-        <h2 class="section-title">Timeline</h2>
-        <p style="text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 4rem;">See where we've been and where we're going!</p>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2014</div>
-                    <div class="timeline-text">Believers Church Medical University Hospital established in South India.</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2014.webp" alt="2014" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2019</div>
-                    <div class="timeline-text">Senior church leaders from Rwanda approached us, asking if it was possible to build a similar, much-needed hospital in their home country.</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2019.webp" alt="2019" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2021</div>
-                    <div class="timeline-text">God moved on the heart of a supporter to provide the resources necessary to purchase the land where the medical hospital would be built. GFA World's ministry in Rwanda began by helping 50 children in dire need through the Child Sponsorship Program. Since then, the ministry has grown rapidly to include more than 2,000 children in five communities!</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2021.webp" alt="2021" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-text">Official groundbreaking to begin construction of the hospital</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2022.webp" alt="2022" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-text">Phase I of the Believers International Hospital is nearing completion.</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2025.webp" alt="2025" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2026</div>
-                    <div class="timeline-text">Phase II construction will begin on the medical University, staffing quarters and campus facilities. Anticipated inauguration of the hospital in May 2026</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2027</div>
-                    <div class="timeline-text">New Bugesera International Airport will open near our hospital. This will accommodate 7 million passengers annually, allowing Rwanda to become the medical and business hub for Central and Eastern Africa.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2028</div>
-                    <div class="timeline-text">All three phases of construction completed: hospital, medical University, staffing quarters and advanced treatment centre.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2030</div>
-                    <div class="timeline-text">First class graduates, some graduates fill positions in Rwanda hospital, some go as medical missionaries to other African countries.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2031 </div>
-                    <div class="timeline-text">First permanent clinics established in other countries. Also, first pastorally trained missionaries graduate from BEC Bible College in Rwanda to work alongside medical teams to establish churches. </div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2035</div>
-                    <div class="timeline-text">Expansion efforts will begin for another hospital and medical University in the western region of Africa (in addition to work in Asia).</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <script src="{{ SITEURL }}/theme/js/progress-circle.js"></script>
 <script>
