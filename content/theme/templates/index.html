@@ -17,19 +17,21 @@
         .homepage-banner {
             position: relative;
             height: 700px;
-            background-size: cover;
-            background-position: center center;
+            background-color: #222;
             display: flex;
             align-items: center;
             padding: 2rem 0;
+            overflow: hidden;
         }
 
         .homepage-banner-content {
             padding-left: 2rem;
+            z-index: 10;
+            position: relative;
         }
 
         .logo-svg {
-          width: 450px;
+          width: 400px;
         }
 
         .homepage-title {
@@ -95,6 +97,10 @@
         .bcmch-details {
             background: linear-gradient(93.84deg, #F9ECCC 0.33%, #FFFFEF 99.92%);
             padding: 2rem 0 3rem;
+        }
+
+        .bcmch-details .seals {
+          text-align: right;
         }
 
         .bcmch-details p {
@@ -163,16 +169,16 @@
 
         /* Responsive homepage styles */
         @media (max-width: 768px) {
-            .homepage-banner {
-                height: 650px;
-            }
-
             .logo-svg {
-              margin-bottom: 4rem;
+              margin-bottom: 0rem;
+              max-width: 70%;
+              margin-top: 3rem;
             }
             
             .homepage-title {
                 font-size: 2.5rem;
+                margin-bottom: 0rem;
+                margin-top: 1rem;
             }
             
             .homepage-banner-content {
@@ -228,9 +234,6 @@
                 height: 500px;
             }
             
-            .homepage-title {
-                font-size: 2rem;
-            }
             
             .hospital-content h2,
             .bcmch-header h2 {
@@ -247,23 +250,295 @@
               display: none;
             }
         }
+        /* Progress section styles */
+        .progress-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .progress-left {
+            text-align: center;
+        }
+
+        .progress-goal {
+            font-family: var(--body-font);
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-amount {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .progress-circle-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .progress-canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--heading-font);
+            font-size: 6rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            pointer-events: none;
+        }
+
+        .progress-right {
+            padding-left: 4rem;
+        }
+
+        @media (max-width: 767px) {
+          .progress-right {
+            padding-left: 0;
+          }
+        }
+
+        .progress-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-title {
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .progress-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: absolute;
+            right: 2rem;
+            top: 10%;
+            width: 100%;
+            height: 80%;
+            z-index: 5;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            top: 50%;
+            transform: translateY(-50%);
+
+            opacity: 1;
+            width: 50%;
+            height: auto;
+            aspect-ratio: 1.5;
+            z-index: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-slide.active {
+            left: 45%;
+        }
+
+        .carousel-slide.prevprev {
+            left: -190%;
+            opacity: 0;
+        }
+
+        .carousel-slide.prev {
+            opacity: 0.3;
+            left: -7%;
+        }
+
+        .carousel-slide.next {
+            opacity: 0.3;
+            left: 97%;
+        }
+
+        .carousel-slide:not(.active):not(.prev):not(.next):not(.prevprev) {
+            opacity: 0;
+            pointer-events: none;
+            width: 50%;
+            height: auto;
+            aspect-ratio: 1.5;
+            left: 145%;
+        }
+
+        /* Carousel Navigation Dots */
+        .carousel-dots {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .carousel-dot.active {
+            background: white;
+            width: 24px;
+            border-radius: 4px;
+            border-color: white;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Mobile Carousel Styles */
+        @media (max-width: 1200px) {
+            
+            .carousel-slide {
+                flex: 0 0 250px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .carousel-container {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                right: auto;
+                top: auto;
+                transform: none;
+            }
+            
+            
+            .homepage-banner {
+                height: auto;
+                min-height: 600px;
+                flex-direction: column;
+                justify-content: center;
+                padding: 3rem 0;
+            }
+            
+        }
+
+        @media (max-width: 767px) {
+            .carousel-container {
+                height: 350px;
+            }
+          .carousel-slide {
+              height: 350px;
+              width: 90%;
+              height: auto;
+              aspect-ratio: 1.5;
+              z-index: 1;
+          }
+
+          .carousel-slide.active {
+              left: 5%;
+          }
+
+          .carousel-slide.prevprev {
+              left: -105%;
+          }
+
+          .carousel-slide.prev {
+              left: -87%;
+          }
+
+          .carousel-slide.next {
+              left: 97%;
+          }
+
+          .carousel-slide:not(.active):not(.prev):not(.next):not(.prevprev) {
+              opacity: 0;
+              pointer-events: none;
+              left: 105%;
+          }
+
+          .carousel-dots {
+            bottom: -17px;
+          }
+        }
     </style>
 {% endblock %}
 
 {% block content %}
     <!-- Homepage Banner Section -->
-    <section class="homepage-banner" style="background-image: url('{{ SITEURL }}/images/{% block banner_image %}homepage-header3.webp{% endblock %}');">
+    <section class="homepage-banner">
         {% include "includes/menu.html" %}
         
         <!-- Homepage Banner Content -->
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-sm-6">
                     <div class="homepage-banner-content">
                         <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/images/logo-africa-2035-gfa-world.svg" alt="Africa 2035" class="logo-svg"></a>
                         <h1 class="homepage-title">Transforming a continent through Christ-centered healthcare</h1>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Carousel -->
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Slides will be dynamically generated -->
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+                <!-- Dots will be dynamically generated -->
             </div>
         </div>
     </section>
@@ -272,10 +547,10 @@
     <section class="hospital-section" style="background-image: url('{{ SITEURL }}/images/dotted-background.png');">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-sm-6">
                     <img src="{{ SITEURL }}/images/homepage-hospital-drone.webp" alt="Hospital Drone View" class="img-rounded">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-sm-6">
                     <div class="hospital-content">
                         <h2>We are building a hospital, but it's more than that.</h2>
                         <p>It's about continental transformation.</p>
@@ -360,7 +635,7 @@
                     <a href="{{ SITEURL }}/bcmch/" class="btn-primary">See what we've already done</a>
                 </div>
                 <div class="col-sm-6 seals">
-                  <img src="{{ SITEURL }}/images/bcmch-seals.png" alt="BCMCH Seals" style="max-width: 400px;">
+                  <img src="{{ SITEURL }}/images/bcmch-seals.png" alt="BCMCH Seals" style="max-width: 350px;">
                 </div>
             </div>
         </div>
@@ -370,14 +645,14 @@
     <section class="progress-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-sm-6">
                     <div class="progress-left">
                         <div class="progress-goal">OUR GOAL</div>
                         <div class="progress-amount">$100,000,000</div>
                         {% include "includes/progress-circle.html" %}
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-sm-6">
                     <div class="progress-right">
                         <img src="{{ SITEURL }}/images/logo-africa-2035-black.svg" alt="Africa 2035" class="progress-logo hidden-xs">
                         <h2 class="progress-title">Together, we can transform communities in Africa. Join us.</h2>
@@ -415,5 +690,166 @@
 
     <!-- Menu JavaScript -->
     <script src="{{ SITEURL }}/theme/js/menu.js"></script>
+
+    <!-- Carousel JavaScript -->
+    <script>
+    (function() {
+        // Carousel configuration
+        const images = [
+            '{{ SITEURL }}/images/carousel/homepage-carousel-1.webp',
+            '{{ SITEURL }}/images/carousel/homepage-carousel-2.webp',
+            '{{ SITEURL }}/images/carousel/homepage-carousel-3.webp',
+            '{{ SITEURL }}/images/carousel/homepage-carousel-4.webp',
+            '{{ SITEURL }}/images/carousel/homepage-carousel-5.webp'
+        ];
+        
+        let currentIndex = 0;
+        let autoSlideInterval;
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.getElementById('carouselDots');
+        
+        // Create slides
+        function createSlides() {
+            images.forEach((src, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.dataset.index = index;
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Medical facility image ${index + 1}`;
+                slide.appendChild(img);
+                track.appendChild(slide);
+            });
+        }
+        
+        // Create navigation dots
+        function createDots() {
+            images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+        }
+        
+        // Update visible slides
+        function updateSlides() {
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next', 'prevprev');
+            });
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Current slide
+            slides[currentIndex].classList.add('active');
+            slides[currentIndex].style.display = 'block';
+            
+            // Previous slide
+            const prevIndex = (currentIndex - 1 + images.length) % images.length;
+            slides[prevIndex].classList.add('prev');
+            
+            // Previous Previous slide
+            const prevPrevIndex = (currentIndex - 2 + images.length) % images.length;
+            slides[prevPrevIndex].classList.add('prevprev');
+            
+            // Next slide
+            const nextIndex = (currentIndex + 1) % images.length;
+            slides[nextIndex].classList.add('next');
+            
+            // Update active dot
+            dots[currentIndex].classList.add('active');
+        }
+        
+        // Go to specific slide
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlides();
+            resetAutoSlide();
+        }
+        
+        // Next slide
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateSlides();
+        }
+        
+        // Previous slide
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateSlides();
+        }
+        
+        // Auto slide
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 4000);
+        }
+        
+        // Reset auto slide
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+        
+        // Initialize carousel
+        function initCarousel() {
+            createSlides();
+            createDots();
+            updateSlides();
+            startAutoSlide();
+            
+            // Add click handlers for slides
+            track.addEventListener('click', (e) => {
+                const slide = e.target.closest('.carousel-slide');
+                if (slide) {
+                    if (slide.classList.contains('prev')) {
+                        prevSlide();
+                        resetAutoSlide();
+                    } else if (slide.classList.contains('next')) {
+                        nextSlide();
+                        resetAutoSlide();
+                    }
+                }
+            });
+            
+            // Add touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    resetAutoSlide();
+                }
+            }
+        }
+        
+        // Start carousel when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCarousel);
+        } else {
+            initCarousel();
+        }
+    })();
+    </script>
 
 {% endblock %}
