@@ -146,21 +146,19 @@
         color: var(--text-dark);
         font-weight: 600;
     }
-    
-    /* Hope and Healing section */
-    .hope-healing-section {
-        position: relative;
-        padding: 7rem 0 1rem;
-        background-image: url('{{ SITEURL }}/images/bcmch/hope-and-healing.webp');
-        background-size: cover;
-        background-position: center center;
-        color: white;
+
+    .hope-healing-section-image {
+      height: 140vh;
+      background-image: url('{{ SITEURL }}/images/bcmch/overlay-medical-camp-full.webp');
+    }
+
+    @media (max-width: 767px) {
+
+      .hope-healing-section-image {
+        background-image: url('{{ SITEURL }}/images/bcmch/overlay-medical-camp-mobile.webp');
+      }
     }
     
-    .hope-healing-content {
-        position: relative;
-        z-index: 2;
-    }
     
     .hope-healing-section h2 {
         font-family: var(--heading-font);
@@ -291,8 +289,8 @@
                         </div>
                         
                         <!-- Navigation arrows -->
-                        <button class="slideshow-nav slideshow-prev">&#10094;</button>
-                        <button class="slideshow-nav slideshow-next">&#10095;</button>
+                        <button class="slideshow-nav slideshow-prev">&larr;</button>
+                        <button class="slideshow-nav slideshow-next">&rarr;</button>
                         
                         <!-- Dots indicator -->
                         <div class="slideshow-dots">
@@ -350,7 +348,7 @@
               <h2 class="section-title">Recognition and Distinctions of BCMCH</h2>
               <div class="recognition-images">
                   <img src="{{ SITEURL }}/images/bcmch/bcmch-seals.webp" alt="BCMCH Seals" style="max-width: 400px;">
-                  <img src="{{ SITEURL }}/images/bcmch/partnerships.webp" alt="Partnerships" style="max-width: 400px;">
+                  <img src="{{ SITEURL }}/images/bcmch/partnerships.webp" alt="Partnerships">
               </div>
             </div>
             <div class="col-sm-6">
@@ -367,12 +365,10 @@
         </div>
     </section>
 
-    <!-- Hope and Healing Section -->
-    <img src="{{ SITEURL }}/images/bcmch/hope-healing-wide.webp">
-    <section class="hope-healing-continued">
-      <div class="container">
-        <div class="row justify-content-center my-4">
-          <div class="col-sm-8">
+  <!-- Hope Healing Section -->
+  <section class="hope-healing-section-image image-overlay-section">
+      <div class="overlay-box">
+        <div class="overlay-text">
             <h2>Bringing Hope and Healing</h2>
             <p>For more than 10 years, BCMCH has been fulfilling its vision of delivering hope and healing with the love of Christ. The hospital has been an anchor for ministry throughout Asia by conducting medical training and medical camps, which provide free medical care to people living in rural areas without access to any medical facilities.</p>
             
@@ -384,10 +380,11 @@
             <p>People in need of a place of solace can visit the hospital’s prominent chapel, where they can also submit prayer requests, attend morning devotions and a weekly service for healing. </p>
             <p>Free Gospel literature and Bibles are placed in 66 locations throughout the hospital.</p>
 
-            </div>
+            <p class="text-center"><a class="btn-primary" href="/rwanda-hospital">Learn how we are going to replicate this in Africa</a></p>
         </div>
       </div>
-    </section>
+  </section>
+
 
     <!-- Footer -->
     <footer class="footer">

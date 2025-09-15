@@ -25,6 +25,7 @@ body {
   font-weight: 400;
   line-height: 1.4;
   color: var(--text-dark);
+  font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,6 +53,10 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+li {
+  padding-left: 0.5rem;
+  padding-bottom: 0.3rem;
+}
 /* Banner Section */
 .banner-section {
   background-attachment: fixed;
@@ -142,7 +147,7 @@ h3 {
 /* Menu button */
 .menu-btn {
   font-family: var(--body-font);
-  position: absolute;
+  position: fixed;
   top: 30px;
   right: 50px;
   z-index: 1001;
@@ -153,6 +158,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
 }
 
 /* Menu button text color change when menu is open */
@@ -162,6 +168,14 @@ h3 {
 
 .menu-btn.menu-open .hamburger span {
   background-color: var(--text-dark);
+}
+
+.menu-btn.menu-open {
+  text-shadow: none;
+
+  .hamburger.active span {
+    box-shadow: none;
+  }
 }
 
 .menu-text {
@@ -189,6 +203,7 @@ h3 {
   display: block;
   transition: all 0.3s ease;
   transform-origin: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 }
 
 /* Hamburger to X transformation */
@@ -372,6 +387,87 @@ h3 {
   line-height: 1.5;
 }
 
+/* Progress section styles */
+.progress-section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.progress-left {
+    text-align: center;
+}
+
+.progress-goal {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.progress-amount {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.progress-circle-container {
+    display: inline-block;
+    position: relative;
+}
+
+.progress-canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--heading-font);
+    font-size: 6rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    pointer-events: none;
+}
+
+.progress-right {
+    padding-left: 4rem;
+}
+
+@media (max-width: 767px) {
+  .progress-right {
+    padding-left: 0;
+  }
+}
+
+.progress-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.progress-title {
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.progress-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+
 /* Card section styles */
 
 .impact-card {
@@ -421,6 +517,51 @@ img {
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
 }
+
+/* Full Width Image with Overlay */
+.image-overlay-section {
+  width: 100%;
+  height: 120vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  position: relative;
+
+  .overlay-box {
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+
+    .overlay-text {
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.8);
+      margin: 0 auto;
+      padding: 3rem 2.5rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 15px;
+    }
+  }
+
+}
+
+@media (max-width: 767px) {
+  .image-overlay-section {
+     height: 150vh;
+
+    .overlay-box {
+      bottom: 1rem;
+      left: 0.5rem;
+      right: 0.5rem;
+
+      .overlay-text {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
 
 @media (min-width: 768px) {
   .left-title h2 {
@@ -519,6 +660,13 @@ img {
 }
 
 /* Utilities */
+
+@media (max-width: 576px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+
 .section-padding {
   padding: 4rem 0;
 }

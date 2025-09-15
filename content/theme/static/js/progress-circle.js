@@ -1,5 +1,6 @@
 // Progress Circle Configuration
 const PROGRESS_PERCENTAGE = 25; // Change this value to update the progress
+const PROGRESS_AMOUNT = "25 million";
 
 function createProgressCircle(canvasId, textId, percentage) {
     const canvas = document.getElementById(canvasId);
@@ -34,6 +35,12 @@ function createProgressCircle(canvasId, textId, percentage) {
     
     // Update text with generated HTML
     text.innerHTML = Math.round(percentage) + '%';
+    
+    // Update amount text spans
+    const amountElements = document.querySelectorAll('span.amount-text');
+    amountElements.forEach(element => {
+        element.textContent = PROGRESS_AMOUNT;
+    });
 }
 
 // Initialize progress circle when page loads

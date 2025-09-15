@@ -15,16 +15,20 @@
         <!-- Banner Content -->
         <div class="banner-content">
             <h1>{% block page_title %}{{ page.title }}{% endblock %}</h1>
+            {% block banner_content %}
+            {% endblock %}
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="section-padding">
+      {% block wide_content %}
         <div class="container">
             {% block main_content %}
             <!-- Page-specific content goes here -->
             {% endblock %}
         </div>
+      {% endblock %}
     </main>
 
     {% include "includes/footer.html" %}
