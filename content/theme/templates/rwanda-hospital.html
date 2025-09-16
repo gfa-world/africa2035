@@ -12,7 +12,7 @@
 {% block twitter_description %}Discover the Believers International Hospital and Medical University being built in Rwanda. This $100 million project will serve 500,000 patients, train medical professionals, and transform healthcare across Africa through Christ-centered care.{% endblock %}
 
 {% block banner_image %}rwanda/our-vision-header.webp{% endblock %}
-{% block page_title %}The Opportunity is Now{% endblock %}
+{% block page_title %}Our Vision{% endblock %}
 
 {% block extra_css %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +20,28 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
 <style>
     /* Rwanda Hospital Page Styles */
-    .banner-section {
-      height: 650px;
+
+    h2.transforming {
+      color: white;
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+    }
+
+    @media (max-width: 767px) {
+      h2.transforming {
+        font-size: 1.5rem;
+      }
+    }
+
+    ul.impact-numbers {
+      font-size: 1.3rem;
+      
+      li {
+        margin-bottom: 0.8rem;
+      }
     }
 
     /* Break out of parent container for full-width sections */
@@ -32,7 +52,8 @@
     
     .intro-section {
         background: white;
-        padding-bottom: 4rem;
+        padding: 3rem 0;
+        background: var(--bg-light);
     }
     
     .intro-left, 
@@ -73,9 +94,6 @@
       padding-bottom: 0;
     }
 
-    .quote-row {
-      padding-top: 2rem;
-    }
 
     .quote {
       color: white;
@@ -86,11 +104,6 @@
       font-weight: bold;
     }
 
-    @media (max-width: 767px) {
-      .quote-row {
-        display: none;
-      }
-    }
 
     .attribution {
       color: white;
@@ -286,6 +299,12 @@
         color: white;
     }
 
+    .phase-2-section {
+        padding: 4rem 0;
+        background-image: url('{{ SITEURL }}/images/dotted-background.png');
+        background-repeat: repeat;
+        background-size: auto;
+    }
       
     .unique-opportunity {
       margin-top: 3rem;
@@ -331,21 +350,47 @@
 {% endblock %}
 
 {% block banner_content %}
-<div class="row justify-content-center quote-row">
-  <div class="col-sm-8">
-    <p class="quote">“We have an unprecedented opportunity to see people helped and bring the hope of Christ to these African countries. This hospital and medical school is of extreme importance.”</p>
-    <p class="attribution">K.P. Yohannan<br> Founder of GFA World, 1950-2024</p>
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <h2 class="transforming">Transforming a Continent through Christ-Centered Healthcare</h2>
   </div>
 </div>
 
 {% endblock %}
 
 {% block wide_content %}
+
+<section class="map-section full-width-section">
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-10">
+            <h2 class="text-center impact">Impact Goals by 2035</h2>
+          </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <div class="map-left">
+                    <img src="{{ SITEURL }}/images/rwanda/africa-map.svg" alt="Current and future countries for ministry in Africa" class="intro-map">
+                </div>
+            </div>
+            <div class="col-sm-6">
+              <ul class="impact-numbers">
+              </ul>
+              <li>500,000 patients helped in the first 2 years</li>
+              <li>100,000 Children helped and provided opportunity</li>
+              <li>10,000 African Missionaries raised up</li>
+              <li>1,000 students/physicians sent out</li>
+              <li>30 million receive clean water</li>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Intro Section -->
 <section class="intro-section full-width-section">
     <div class="container">
         <div class="row justify-content-center">
           <div class="col-sm-10">
+            <h2 class="text-center">Phase 1: Rwanda</h2>
             <p class="intro-text bigger">We are in the process of building a world-class hospital <br class="hidden-xs">and medical university in Kigali, Rwanda.</p>
           </div>
         </div>
@@ -374,36 +419,11 @@
     </div>
 </section>
 
-<section class="map-section full-width-section">
-    <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-sm-10">
-            <h2 class="text-center">Next Countries for Africa 2035</h2>
-          </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-sm-6">
-                <div class="map-left">
-                    <img src="{{ SITEURL }}/images/rwanda/africa-map.svg" alt="Current and future countries for ministry in Africa" class="intro-map">
-                </div>
-            </div>
-            <div class="col-sm-6">
-              <p>Approximately 1.6 million Africans died of malaria, tuberculosis and HIV-related illnesses in one year.</p>
-              <p>1 in 3 children in Africa live in severe child food poverty due to inequity, conflict and climate crises.</p>
-              <p>11 of the world’s least-evangelized groups of people are in Africa. </p>
-              <p>160 million are people still waiting to hear the Good News.</p>
-              <p>The need in Africa is vast.</p>
-              <p>We will provide the urgently needed world class health care while also building a foundation to bring the help and care of Christ to the nations of Africa.</p>
-
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Medical Complex Section -->
 <section class="medical-complex-section full-width-section">
     <div class="container">
-        <h2 class="section-title">Planned Medical Campus</h2>
+        <h2 class="section-title">Medical Campus</h2>
         <p class="medical-campus-details">3 Key Components for Exponential Impact</p>
         <div class="row card-box">
             <div class="col-lg-4 col-md-6">
@@ -500,7 +520,7 @@
 <!-- Current Snapshot Section -->
 <section class="current-snapshot-section full-width-section">
     <div class="container">
-      <h2 class="section-title">Current Snapshot</h2>
+      <h2 class="section-title">Capital Campaign</h2>
       <div class="row align-items-center">
         <div class="col-sm-6 left-side">
           {% include "includes/progress-circle.html" %}
@@ -517,6 +537,17 @@
         </div>
       </div>
     </div>
+</section>
+<section class="section-padding full-width-section phase-2-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10 text-center">
+        <h2 class="text-center">Phase 2: West Africa</h2>
+        <img src="{{ SITEURL }}/images/rwanda/updates-coming-soon.webp" alt="Blueprint-style drawing of a road in Africa" style="max-width: 700px; margin-top: 2rem;">
+        <p style="padding-top: 2rem">Exciting updates coming soon!</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="opportunity-section-image image-overlay-section">
@@ -536,42 +567,6 @@
     </div>
 </section>
 
-
-<!-- Africa tomorrow -->
-<section class="section-padding full-width-section africa-tomorrow-section">
-    <div class="container">
-        <h2 class="section-title">Africa Tomorrow</h2>
-        <div class="row card-box">
-            <div class="col-sm-4">
-                <div class="impact-card">
-                    <img src="{{ SITEURL }}/images/rwanda/card-clean-water.webp" alt="Clean Water" class="impact-card-image">
-                    <div class="impact-card-content">
-                        <h3 class="impact-card-number">30 million people</h3>
-                        <p class="impact-card-text">We want to provide safe, pure drinking water for those who are currently without this basic necessity.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="impact-card">
-                    <img src="{{ SITEURL }}/images/rwanda/card-missionaries-trained.webp" alt="10,000 missionaries trained" class="impact-card-image">
-                    <div class="impact-card-content">
-                        <h3 class="impact-card-number">10,000 African missionaries</h3>
-                        <p class="impact-card-text">Our vision is to see these missionaries raised up and trained to show the love of Christ in communities across the continent.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="impact-card">
-                    <img src="{{ SITEURL }}/images/rwanda/card-children-helped.webp" alt="100,000 children helped" class="impact-card-image">
-                    <div class="impact-card-content">
-                        <h3 class="impact-card-number">100,000 children</h3>
-                        <p class="impact-card-text">It’s our heart to help and give opportunities like basic health care, food, clean water and education to keep these children from a life of poverty and exploitation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <script>
