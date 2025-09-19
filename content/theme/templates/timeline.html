@@ -19,6 +19,13 @@
     .section-padding {
       padding-top: 2rem;
     }
+
+    .timeline-intro {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
     /* Timeline Section Styles */
     .timeline-section {
         padding: 2rem 0 6rem;
@@ -53,12 +60,12 @@
     }
     
     .timeline-item:nth-child(odd) {
-        padding-right: calc(50% + 90px);
+        padding-right: calc(50% + 120px);
         text-align: right;
     }
     
     .timeline-item:nth-child(even) {
-        padding-left: calc(50% + 90px);
+        padding-left: calc(50% + 120px);
         text-align: left;
     }
     
@@ -72,9 +79,17 @@
     
     .timeline-year {
         font-family: var(--heading-font);
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: 600;
         color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .timeline-subhead {
+        font-family: var(--heading-font);
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--text-dark);
         margin-bottom: 1rem;
     }
     
@@ -89,8 +104,8 @@
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 240px;
         border-radius: 50%;
         object-fit: cover;
         border: 5px solid white;
@@ -142,12 +157,18 @@
 <!-- Timeline Section -->
 <section class="timeline-section">
     <div class="container">
-        <h2>See where we've been and where we're going!</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8 timeline-intro">
+            <p>After more than 45 years of ministry in more than 18 countries, we are not new to big, faith-filled undertakings! When K.P. Yohannan founded GFA World in 1979, he could only dream of the worldwide movement it would grow into, with millions of believers worshiping the Lord as a result.</p>
+            <p>See where we've been and where we're going!</p>
+          </div>
+        </div>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2014</div>
-                    <div class="timeline-text">Believers Church Medical University Hospital established in South India.</div>
+                    <div class="timeline-subhead">First World-Class Hospital Established</div>
+                    <div class="timeline-text">Believers Church Medical College Hospital (BCMCH) was established in South India, now servicing over 2,000 patients per day.</div>
                 </div>
                 <img src="{{ SITEURL }}/images/rwanda/timeline-2014.webp" alt="2014" class="timeline-image">
             </div>
@@ -155,7 +176,8 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2019</div>
-                    <div class="timeline-text">Senior church leaders from Rwanda approached us, asking if it was possible to build a similar, much-needed hospital in their home country.</div>
+                    <div class="timeline-subhead">Africa Conversations Begin</div>
+                    <div class="timeline-text">After visiting our ministry in Asia and BCMC Hospital in India, senior church leaders from Rwanda extended an invitation to begin our work in Rwanda, including establishing a world-class hospital.</div>
                 </div>
                 <img src="{{ SITEURL }}/images/rwanda/timeline-2019.webp" alt="2019" class="timeline-image">
             </div>
@@ -163,7 +185,8 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2021</div>
-                    <div class="timeline-text">God moved on the heart of a supporter to provide the resources necessary to purchase the land where the medical hospital would be built. GFA World's ministry in Rwanda began by helping 50 children in dire need through the Child Sponsorship Program. Since then, the ministry has grown rapidly to include more than 2,000 children in five communities!</div>
+                    <div class="timeline-subhead">On the Way in Rwanda</div>
+                    <div class="timeline-text">In Kigali, Rwanda, a senior leader was able to find land, complete with buildings for an office and Bible college, at a fraction of the cost. Meanwhile, God moved on a supporter to provide the needed resources to purchase it. A team of missionaries began the work by ministering to the people in the community as well as helping 50 children through our child sponsorship program. Within just a few months, a church of 250 believers was established.</div>
                 </div>
                 <img src="{{ SITEURL }}/images/rwanda/timeline-2021.webp" alt="2021" class="timeline-image">
             </div>
@@ -171,7 +194,8 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2022</div>
-                    <div class="timeline-text">Official groundbreaking to begin construction of the hospital</div>
+                    <div class="timeline-subhead">Hospital Groundbreaking</div>
+                    <div class="timeline-text">Official groundbreaking to begin construction of the hospital.</div>
                 </div>
                 <img src="{{ SITEURL }}/images/rwanda/timeline-2022.webp" alt="2022" class="timeline-image">
             </div>
@@ -179,7 +203,8 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2025</div>
-                    <div class="timeline-text">Phase I of the Believers International Hospital is nearing completion.</div>
+                    <div class="timeline-subhead">Hospital Nearing Completion</div>
+                    <div class="timeline-text">The Believers International Hospital nearing completion, opening its doors in 2026.</div>
                 </div>
                 <img src="{{ SITEURL }}/images/rwanda/timeline-2025.webp" alt="2025" class="timeline-image">
             </div>
@@ -187,7 +212,8 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2026</div>
-                    <div class="timeline-text">Phase II construction will begin on the medical University, staffing quarters and campus facilities. Anticipated inauguration of the hospital in May 2026</div>
+                    <div class="timeline-subhead">Medical University Groundbreaking</div>
+                    <div class="timeline-text">Construction begins for the medical university, staffing quarters and campus facilities.</div>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
@@ -195,14 +221,16 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2027</div>
-                    <div class="timeline-text">Phase III of the Medical University will be completed. Medical University to have an enrollment of 500 students per year</div>
+                    <div class="timeline-subhead">Medical University Commences</div>
+                    <div class="timeline-text">Medical University will be completed. Medical University to have an enrollment of 500 students per year.</div>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2028</div>
-                    <div class="timeline-text">All three phases of construction completed: hospital, medical University, staffing quarters and advanced treatment centre.</div>
+                    <div class="timeline-subhead">Medical Campus Completed</div>
+                    <div class="timeline-text">The hospital, medical university, staffing quarters and advanced treatment centre.</div>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
@@ -210,15 +238,17 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2030</div>
-                    <div class="timeline-text">First class graduates, some graduates fill positions in Rwanda hospital, some go as medical missionaries to other African countries.</div>
+                    <div class="timeline-subhead">First Graduating Class of Medical College</div>
+                    <div class="timeline-text">First class graduates. Some graduates fill positions in Rwanda hospital, some go as medical missionaries to other African countries.</div>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-year">2031 </div>
-                    <div class="timeline-text">First permanent clinics established in other countries. Also, first pastorally trained missionaries graduate from BEC Bible College in Rwanda to work alongside medical teams to establish churches. </div>
+                    <div class="timeline-year">2031</div>
+                    <div class="timeline-subhead">Permanent Clinics Establish in other Countries</div>
+                    <div class="timeline-text">First permanent clinics established in other countries. Also, first trained missionaries graduate from the Bible College in Rwanda to work communities where medical teams are serving.</div>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
@@ -226,7 +256,8 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2035</div>
-                    <div class="timeline-text">Expansion efforts will begin for another hospital and medical University in the western region of Africa (in addition to work in Asia).</div>
+                    <div class="timeline-subhead">Expansion Plans for Next Hospital and Medical University</div>
+                    <div class="timeline-text">Expansion efforts will begin for another hospital and medical university in the western region of Africa.</div>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
