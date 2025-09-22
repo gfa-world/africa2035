@@ -16,252 +16,395 @@
 
 {% block extra_css %}
 <style>
-    .section-padding {
-      padding-top: 2rem;
+.timeline-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 0 1rem;
+}
+
+.timeline-intro p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ddd;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 6rem 0;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.timeline-year-circle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 90px;
+    background-color: #2c2c2c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--heading-font);
+    font-size: 1.4rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.timeline-content {
+    width: calc(50% - 70px);
+    padding-right: 30px;
+    text-align: right;
+    padding: 2rem 0;
+}
+
+.timeline-content h3 {
+    font-family: var(--heading-font);
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
+}
+
+.timeline-content p {
+    line-height: 1.5;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+}
+
+.timeline-image {
+    width: calc(50% - 70px);
+    padding-left: 30px;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* For items without images, center the content */
+.timeline-item.no-image .timeline-content {
+    width: calc(50% - 70px);
+}
+
+.timeline-item.no-image .timeline-image {
+    width: calc(50% - 70px);
+}
+
+/* Alternating layout for visual variety */
+.timeline-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.timeline-item.reverse .timeline-content {
+    padding-right: 0;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.timeline-item.reverse .timeline-image {
+    padding-left: 0;
+    padding-right: 30px;
+    text-align: right;
+}
+
+.timeline-item.reverse .timeline-image img {
+    margin-left: auto;
+}
+
+@media (max-width: 992px) {
+    .timeline-container::before {
+        left: 50px;
     }
 
-    .timeline-intro {
-      text-align: center;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+    .timeline-item,
+    .timeline-item.reverse {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 1.5rem;
     }
 
-    /* Timeline Section Styles */
-    .timeline-section {
-        padding: 2rem 0 6rem;
-        background: white;
+    .timeline-year-circle {
+        left: 50px;
+        width: 80px;
+        height: 80px;
+        font-size: 1.2rem;
     }
-    
-    .timeline {
-        position: relative;
-        margin: 0 auto;
-        padding-top: 2rem;
-        padding-bottom: 4rem;
-    }
-    
-    .timeline::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        background: linear-gradient(to bottom, 
-            var(--secondary-color) 0%, 
-            var(--secondary-color) 85%, 
-            rgba(0, 184, 148, 0.5) 95%, 
-            transparent 100%);
-        transform: translateX(-50%);
-    }
-    
-    .timeline-item {
-        position: relative;
-        margin-bottom: 4rem;
-    }
-    
-    .timeline-item:nth-child(odd) {
-        padding-right: calc(50% + 120px);
-        text-align: right;
-    }
-    
-    .timeline-item:nth-child(even) {
-        padding-left: calc(50% + 120px);
+
+    .timeline-content,
+    .timeline-item.reverse .timeline-content {
+        width: calc(100% - 120px);
+        margin-left: 120px;
+        padding: 0;
         text-align: left;
     }
-    
-    .timeline-content {
-        background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        position: relative;
-    }
-    
-    .timeline-year {
-        font-family: var(--heading-font);
-        font-size: 3rem;
-        font-weight: 600;
-        color: var(--secondary-color);
-        margin-bottom: 0.5rem;
-    }
-    
-    .timeline-subhead {
-        font-family: var(--heading-font);
-        font-size: 1.4rem;
-        font-weight: 500;
-        color: var(--text-dark);
-        margin-bottom: 1rem;
-    }
-    
-    .timeline-text {
-        font-size: 1.1rem;
-        color: var(--text-dark);
-        line-height: 1.6;
-    }
-    
-    .timeline-image {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 240px;
-        height: 240px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 5px solid white;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .timeline-dot {
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        background: var(--secondary-color);
-        border-radius: 50%;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        border: 10px solid white;
-        box-shadow: 0 0 0 4px var(--secondary-color);
+
+    .timeline-image,
+    .timeline-item.reverse .timeline-image {
+        width: calc(100% - 120px);
+        margin-left: 120px;
+        padding: 0;
+        text-align: left;
     }
 
-    h2 {
-      text-align: center;
+    .timeline-image img,
+    .timeline-item.reverse .timeline-image img {
+        margin-left: 0;
+        max-width: 400px;
     }
-    
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-        .timeline-image {
-          width: 140px;
-          height: 140px;
-        }
-        .timeline::before {
-            left: 60px;
-        }
-        
-        .timeline-item {
-            padding-left: 120px !important;
-            padding-right: 0 !important;
-            text-align: left !important;
-        }
-        
-        .timeline-image,
-        .timeline-dot {
-            left: 60px;
-        }
+
+    .timeline-item.no-image .timeline-content {
+        width: calc(100% - 120px);
     }
+}
+
+@media (max-width: 576px) {
+    .timeline-container::before {
+        left: 35px;
+    }
+
+    .timeline-year-circle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.1rem;
+        left: 0;
+    }
+
+    .timeline-content,
+    .timeline-item.reverse .timeline-content {
+        width: calc(100% - 90px);
+        margin-left: 90px;
+    }
+
+    .timeline-image,
+    .timeline-item.reverse .timeline-image {
+        width: calc(100% - 90px);
+        margin-left: 90px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .timeline-item.no-image .timeline-content {
+        width: calc(100% - 90px);
+    }
+}
 </style>
 {% endblock %}
 
 {% block main_content %}
-<!-- Timeline Section -->
-<section class="timeline-section">
-    <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 timeline-intro">
-            <p>After more than 45 years of ministry in more than 18 countries, we are not new to big, faith-filled undertakings! When K.P. Yohannan founded GFA World in 1979, he could only dream of the worldwide movement it would grow into, with millions of believers worshiping the Lord as a result.</p>
-            <p>See where we've been and where we're going!</p>
-          </div>
+<div class="timeline-intro">
+    <p>In 1979 when K.P. Yohannan founded GFA World, he could only dream of the worldwide movement it would become with millions of believers worshiping the Lord across nearly 20 countries. Tens of thousands of Christian workers have been trained and share the love of Christ and hundreds of thousands of families have been lifted out of poverty.</p>
+    <p><strong>What we are doing throughout Asia we hope to do in Africa.</strong></p>
+</div>
+
+<div class="timeline-container">
+    <!-- 2014 -->
+    <div class="timeline-item">
+        <div class="timeline-year-circle">2014</div>
+        <div class="timeline-content">
+            <h3>First World-Class Hospital Established</h3>
+            <p>Believers Church Medical College Hospital (BCMCH) was established in South India, now servicing over 2,000 patients daily.</p>
         </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2014</div>
-                    <div class="timeline-subhead">First World-Class Hospital Established</div>
-                    <div class="timeline-text">Believers Church Medical College Hospital (BCMCH) was established in South India, now servicing over 2,000 patients per day.</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2014.webp" alt="2014" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2019</div>
-                    <div class="timeline-subhead">Africa Conversations Begin</div>
-                    <div class="timeline-text">After visiting our ministry in Asia and BCMC Hospital in India, senior church leaders from Rwanda extended an invitation to begin our work in Rwanda, including establishing a world-class hospital.</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2019.webp" alt="2019" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2021</div>
-                    <div class="timeline-subhead">On the Way in Rwanda</div>
-                    <div class="timeline-text">In Kigali, Rwanda, a senior leader was able to find land, complete with buildings for an office and Bible college, at a fraction of the cost. Meanwhile, God moved on a supporter to provide the needed resources to purchase it. A team of missionaries began the work by ministering to the people in the community as well as helping 50 children through our child sponsorship program. Within just a few months, a church of 250 believers was established.</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2021.webp" alt="2021" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-subhead">Hospital Groundbreaking</div>
-                    <div class="timeline-text">Official groundbreaking to begin construction of the hospital.</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2022.webp" alt="2022" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-subhead">Hospital Nearing Completion</div>
-                    <div class="timeline-text">The Believers International Hospital nearing completion, opening its doors in 2026.</div>
-                </div>
-                <img src="{{ SITEURL }}/images/rwanda/timeline-2025.webp" alt="2025" class="timeline-image">
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2026</div>
-                    <div class="timeline-subhead">Medical University Groundbreaking</div>
-                    <div class="timeline-text">Construction begins for the medical university, staffing quarters and campus facilities.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2027</div>
-                    <div class="timeline-subhead">Medical University Commences</div>
-                    <div class="timeline-text">Medical University will be completed. Medical University to have an enrollment of 500 students per year.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2028</div>
-                    <div class="timeline-subhead">Medical Campus Completed</div>
-                    <div class="timeline-text">The hospital, medical university, staffing quarters and advanced treatment centre.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2030</div>
-                    <div class="timeline-subhead">First Graduating Class of Medical College</div>
-                    <div class="timeline-text">First class graduates. Some graduates fill positions in Rwanda hospital, some go as medical missionaries to other African countries.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2031</div>
-                    <div class="timeline-subhead">Permanent Clinics Establish in other Countries</div>
-                    <div class="timeline-text">First permanent clinics established in other countries. Also, first trained missionaries graduate from the Bible College in Rwanda to work communities where medical teams are serving.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">2035</div>
-                    <div class="timeline-subhead">Expansion Plans for Next Hospital and Medical University</div>
-                    <div class="timeline-text">Expansion efforts will begin for another hospital and medical university in the western region of Africa.</div>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2014.webp" alt="BCMCH Hospital in 2014">
         </div>
     </div>
-</section>
+
+    <!-- 2019 -->
+    <div class="timeline-item reverse">
+        <div class="timeline-year-circle">2019</div>
+        <div class="timeline-content">
+            <h3>Africa Conversations Begin</h3>
+            <p>After visiting our ministry in Asia and BCMC Hospital in India, senior church leaders from Rwanda extended an invitation to begin our work in Rwanda, including establishing a world-class hospital.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2019.webp" alt="Africa conversations in 2019">
+        </div>
+    </div>
+
+    <!-- 2021 -->
+    <div class="timeline-item">
+        <div class="timeline-year-circle">2021</div>
+        <div class="timeline-content">
+            <h3>Rwanda Beginnings</h3>
+            <p>In Kigali, Rwanda, a senior leader was able to find land, complete with buildings for an office and Bible college, at a fraction of the cost. Meanwhile, God moved on a supporter to provide the needed resources to purchase it.</p>
+            <p>A team of missionaries began the work by ministering to the people in the community as well as helping 50 children through our child sponsorship program. Within just a few months, a church of 250 believers was established.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2021.webp" alt="Rwanda beginnings in 2021">
+        </div>
+    </div>
+
+    <!-- 2022 -->
+    <div class="timeline-item reverse">
+        <div class="timeline-year-circle">2022</div>
+        <div class="timeline-content">
+            <h3>Hospital Groundbreaking</h3>
+            <p>Official groundbreaking commenced the work on the hospital.</p>
+            <p>The child sponsorship program grew to 1,000 children and 2 Jesus Wells were installed.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2022.webp" alt="Hospital groundbreaking in 2022">
+        </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="timeline-item">
+        <div class="timeline-year-circle">2023</div>
+        <div class="timeline-content">
+            <h3>Ministry Grows to 4 Rwandan Provinces</h3>
+            <p>Hospital Construction was well on the way and the ministry in Rwanda grew to 4 provinces.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2023.webp" alt="Ministry growth in 2023">
+        </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="timeline-item reverse">
+        <div class="timeline-year-circle">2024</div>
+        <div class="timeline-content">
+            <h3>Work Established in Liberia</h3>
+            <p>Work was established in Liberia with 15 missionaries ministering to the people in word and deed. In Rwanda 5 new fellowships start and 4 medical camps were provided throughout the country.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2024.webp" alt="Work in Liberia 2024">
+        </div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="timeline-item">
+        <div class="timeline-year-circle">2025</div>
+        <div class="timeline-content">
+            <h3>Hospital Nearly Completed</h3>
+            <p>The Believers International Hospital nearly completed, opening its doors in 2026.</p>
+            <p>Liberia establishes child sponsorship program with 1000 children and Rwanda brings hope and opportunity to over 3,000 children.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2025.webp" alt="Hospital nearly complete in 2025">
+        </div>
+    </div>
+
+    <!-- 2026 -->
+    <div class="timeline-item reverse">
+        <div class="timeline-year-circle">2026</div>
+        <div class="timeline-content">
+            <h3>Medical University Groundbreaking</h3>
+            <p>With the hospital doors open in 2026, construction will begin for the medical university, staffing quarters and campus facilities.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2026.webp" alt="Medical University groundbreaking 2026">
+        </div>
+    </div>
+
+    <!-- 2027 - No image mentioned -->
+    <div class="timeline-item no-image">
+        <div class="timeline-year-circle">2027</div>
+        <div class="timeline-content">
+            <h3>Medical University Commences</h3>
+            <p>Medical University will be completed. Medical University to have an enrollment of 500 students annually.</p>
+        </div>
+        <div class="timeline-image">
+            <!-- Empty space for alignment -->
+        </div>
+    </div>
+
+    <!-- 2028 -->
+    <div class="timeline-item reverse">
+        <div class="timeline-year-circle">2028</div>
+        <div class="timeline-content">
+            <h3>Medical Campus Completed</h3>
+            <p>The hospital, medical university, staffing quarters and advanced treatment centre will be fully functioning providing excellent care and future doctors for Rwanda and Africa.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2028.webp" alt="Medical campus completed 2028">
+        </div>
+    </div>
+
+    <!-- 2030 -->
+    <div class="timeline-item">
+        <div class="timeline-year-circle">2030</div>
+        <div class="timeline-content">
+            <h3>First Graduating Class of Medical College</h3>
+            <p>First class graduates with some graduates filling positions in the Rwanda hospital and some going as medical missionaries to other African countries.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2030.webp" alt="First graduating class 2030">
+        </div>
+    </div>
+
+    <!-- 2031 - No image -->
+    <div class="timeline-item reverse no-image">
+        <div class="timeline-year-circle">2031</div>
+        <div class="timeline-content">
+            <h3>Permanent Clinics Established in Other Countries</h3>
+            <p>First permanent clinics will be established in other countries providing life-saving care in needed areas. Graduates from the Bible College in Rwanda will be serving in the same communities.</p>
+        </div>
+        <div class="timeline-image">
+            <!-- Empty space for alignment -->
+        </div>
+    </div>
+
+    <!-- 2032 -->
+    <div class="timeline-item">
+        <div class="timeline-year-circle">2032</div>
+        <div class="timeline-content">
+            <h3>Work Established in + 5 Countries</h3>
+            <p>We plan to have established ministry in + 5 countries by 2032 providing medical clinics, telemedicine, missionaries who share God's love and compassion, and help and opportunity for thousands of children.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2032.webp" alt="Work in 5 countries 2032">
+        </div>
+    </div>
+
+    <!-- 2033 -->
+    <div class="timeline-item reverse">
+        <div class="timeline-year-circle">2033</div>
+        <div class="timeline-content">
+            <h3>75,000 Children Helped</h3>
+            <p>75,000 children will have been helped and given opportunity through our child sponsorship program, community transformation and our Vacation Bible schools providing practical help and training for the next generation.</p>
+        </div>
+        <div class="timeline-image">
+            <img src="{{ SITEURL }}/images/timeline/2033.webp" alt="75,000 children helped 2033">
+        </div>
+    </div>
+
+    <!-- 2035 - No image -->
+    <div class="timeline-item no-image">
+        <div class="timeline-year-circle">2035</div>
+        <div class="timeline-content">
+            <h3>Expansion Plans</h3>
+            <p>Expansion efforts will begin for a new hospital and medical university in the western region of Africa.</p>
+        </div>
+        <div class="timeline-image">
+            <!-- Empty space for alignment -->
+        </div>
+    </div>
+</div>
 {% endblock %}
