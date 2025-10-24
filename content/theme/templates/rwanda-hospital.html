@@ -143,6 +143,10 @@
           margin-bottom: 0.5rem;
         }
 
+        .card-box {
+          row-gap: 2rem;
+        }
+
         p.medical-campus-details {
           text-align: center;
           font-size: 1.3rem;
@@ -165,7 +169,6 @@
         border-radius: 15px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        margin-bottom: 2rem;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -424,9 +427,9 @@
 <section class="medical-complex-section full-width-section">
     <div class="container">
         <h2 class="section-title">Medical Campus</h2>
-        <p class="medical-campus-details">3 Key Components for Exponential Impact</p>
-        <div class="row card-box">
-            <div class="col-lg-4 col-md-6">
+        <p class="medical-campus-details">4 Key Components for Exponential Impact</p>
+        <div class="row card-box justify-content-center">
+            <div class="col-lg-5 col-md-6">
                 <div class="medical-card">
                     <div class="medical-card-image-container">
                         <img src="{{ SITEURL }}/images/rwanda/planned-hospital.webp" alt="The Hospital" class="medical-card-image">
@@ -435,12 +438,12 @@
                     <div class="medical-card-content">
                         <div class="medical-card-meta">
                             <div class="medical-card-meta-item">
-                                <div class="medical-card-meta-label">Completion Date</div>
+                                <div class="medical-card-meta-label">Target Completion Date</div>
                                 <div class="medical-card-meta-value">April 2026</div>
                             </div>
                             <div class="medical-card-meta-item">
                                 <div class="medical-card-meta-label">Estimated Cost</div>
-                                <div class="medical-card-meta-value">$40 million</div>
+                                <div class="medical-card-meta-value">$80 million</div>
                             </div>
                         </div>
                         <div class="medical-card-text">
@@ -456,17 +459,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-5 col-md-6">
                 <div class="medical-card">
                     <div class="medical-card-image-container">
-                        <img src="{{ SITEURL }}/images/rwanda/planned-medical-university.webp" alt="Medical University" class="medical-card-image">
-                        <h3 class="medical-card-title">The Medical University & Staffing Quarters</h3>
+                        <img src="{{ SITEURL }}/images/rwanda/planned-staffing-quarters.webp" alt="Staff and Student Quarters" class="medical-card-image">
+                        <h3 class="medical-card-title">Staff and Student Quarters</h3>
                     </div>
                     <div class="medical-card-content">
                         <div class="medical-card-meta">
                             <div class="medical-card-meta-item">
                                 <div class="medical-card-meta-label">Target Completion Date</div>
-                                <div class="medical-card-meta-value">August 2026</div>
+                                <div class="medical-card-meta-value">2026-2028 across 3 phases</div>
                             </div>
                             <div class="medical-card-meta-item">
                                 <div class="medical-card-meta-label">Estimated Cost</div>
@@ -474,19 +477,45 @@
                             </div>
                         </div>
                         <div class="medical-card-text">
-                            <p>The <strong>medical university</strong> will welcome up to <strong>100 students each year</strong>, multiplying the hospital's impact by actively training and attracting doctors from Rwanda and other African nations. It will create a <strong>steady flow of new professionals</strong> to ensure this important work continues far into the future.</p>
+                            <p>The Staff and Student Quarters is crucial to the development of the hospital and medical university. It will allow for international medical professionals to live near the hospital and university for prolonged periods while they live with and train local health workers.</p>
                             <div class="read-more-content">
-                                <p>Everyone who attends BIHMU for medical education will be given a strong understanding of underserved areas and the underprivileged. They'll have opportunities for practical training on the field, helping with medical camps and gaining real-world experience.</p>
-                                <p>The medical university is a catalyst to long-term service and ministry throughout the continent. We expect to recruit students from across Africa who have a passion and desire to use their training to serve those most in need within their home communities.</p>
-                                <p>Upon graduation, they'll be equipped to start medical clinics, helping under-resourced communities. And right alongside, will be opportunities to express the compassionate heart of Christ. Through this extension of ministry, new churches can be established, extending healing and hope to all who come.</p>
-                                <p>The <strong>Staffing Quarters</strong> is crucial to the development of the hospital and medical university. It will allow for international medical professionals to live near the hospital and university for prolonged periods while we train health workers to take over the work. Our desire is, through our medical university, to provide a source of medical professionals with the field of expertise required for their own nations' particular needs and growing population. Through this endeavor, we are providing the rising generation with the resources they need for their continent to thrive.</p>
+                                <p>Our desire is, through our medical university, to provide a source of medical professionals with the field of expertise required for their own nations' particular needs and growing population. Through this endeavor, we are providing the rising generation with the resources they need for their continent to thrive.</p>
                             </div>
                             <button class="read-more-btn" onclick="toggleReadMore(this)">Read more</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-5 col-md-6">
+                <div class="medical-card">
+                    <div class="medical-card-image-container">
+                        <img src="{{ SITEURL }}/images/rwanda/planned-medical-university.webp" alt="Medical University" class="medical-card-image">
+                        <h3 class="medical-card-title">The Medical University</h3>
+                    </div>
+                    <div class="medical-card-content">
+                        <div class="medical-card-meta">
+                            <div class="medical-card-meta-item">
+                                <div class="medical-card-meta-label">Target Completion Date</div>
+                                <div class="medical-card-meta-value">2027 (Phase 1)</div>
+                            </div>
+                            <div class="medical-card-meta-item">
+                                <div class="medical-card-meta-label">Estimated Cost</div>
+                                <div class="medical-card-meta-value">$15 million (Phase 1)</div>
+                            </div>
+                        </div>
+                        <div class="medical-card-text">
+                            <p>The medical university will welcome <strong>100+ students in medicine and allied sciences each year</strong>, multiplying the hospital's impact by actively training doctors and medical professionals (such as nurses) from Rwanda and other African nations. It will create a <strong>steady flow of new professionals</strong> to ensure this important work continues far into the future.</p>
+                            <div class="read-more-content">
+                                <p>Everyone who attends the university for medical education will be given a strong understanding of underserved areas and the underprivileged. They'll have opportunities for practical training on the field, helping with medical camps and gaining real-world experience.</p>
+                                <p>The medical university is a catalyst to long-term service and ministry throughout the continent. We expect to recruit students from across Africa who have a passion and desire to use their training to serve those most in need within their home communities.</p>
+                                <p>Upon graduation, they'll be equipped to start medical clinics, helping under-resourced communities. And right alongside, will be opportunities to express the compassionate heart of Christ. Through this extension of ministry, new churches can be established, extending healing and hope to all who come.</p>
+                            </div>
+                            <button class="read-more-btn" onclick="toggleReadMore(this)">Read more</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6">
                 <div class="medical-card">
                     <div class="medical-card-image-container">
                         <img src="{{ SITEURL }}/images/rwanda/planned-research-center.webp" alt="Research Centre" class="medical-card-image">
@@ -500,7 +529,7 @@
                             </div>
                             <div class="medical-card-meta-item">
                                 <div class="medical-card-meta-label">Estimated Cost</div>
-                                <div class="medical-card-meta-value">$15 million</div>
+                                <div class="medical-card-meta-value">$24 million</div>
                             </div>
                         </div>
                         <div class="medical-card-text">
@@ -527,9 +556,8 @@
         </div>
         <div class="col-sm-6">
           <ul>
-            <li>$100 million to see the medical campus fully completed and functioning.*</li>
+            <li>$150 million to see the medical campus fully completed and functioning.*</li>
             <li>Goal of full funding: <strong>August 2026</strong></li>
-            <li>$<span class="amount-text"></span> identified and secured.</li>
             <li>Each year a phase is delayed adds $5 to $10 million to the cost of the project.</li>
           </ul>
           <p>Your own investment will result in lives saved here and for eternity.</p>

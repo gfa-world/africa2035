@@ -1,0 +1,30 @@
+card: Hospital
+Target Completion Date April 2026
+Estimated Cost $80 million
+ 
+new card
+card: Staff and Student Quarters
+image: rwanda-hospital/planned-staffing-quarters.webp
+Target Completion Date: 2026-2028 across 3 phases
+Estimated Cost: $20 million
+ 
+Description: The Staff and Student Quarters is crucial to the development of the hospital and medical university. It will allow for international medical professionals to live near the hospital and university for prolonged periods while and live with and train local health workers. Our desire is, through our medical university, to provide a source of medical professionals with the field of expertise required for their own nations' particular needs and growing population. Through this endeavor, we are providing the rising generation with the resources they need for their continent to thrive.
+ 
+card: Medical University
+Estimated Cost: 15 million (Phase 1)
+Target Completion Date: 2027 (Phase 1)
+The medical university will welcome 100+ students in medicine and allied sciences each year, multiplying the hospital's impact by actively training doctors and medical professionals (ex: nurses) from Rwanda and other African nations. It will create a steady flow of new professionals to ensure this important work continues far into the future.
+ 
+Everyone who attends BIHMU for medical education will be given a strong understanding of underserved areas and the underprivileged. They'll have opportunities for practical training on the field, helping with medical camps and gaining real-world experience.
+ 
+The medical university is a catalyst to long-term service and ministry throughout the continent. We expect to recruit students from across Africa who have a passion and desire to use their training to serve those most in need within their home communities.
+ 
+Upon graduation, they'll be equipped to start medical clinics, helping under-resourced communities. And right alongside, will be opportunities to express the compassionate heart of Christ. Through this extension of ministry, new churches can be established, extending healing and hope to all who come.
+ 
+ 
+card: Researcn and Development Centre
+Target Completion Date: 2028
+Estimated Cost: 24 million
+Description: The new Research and Development Centre will encompass the specialized sectors of medicine, offering high-end services and expert-level care in areas such as oncology, transplantation, and more.
+ 
+This cutting-edge Research and Development Centre will also help bring major research and medical discoveries impacting local populations who will benefit the most. They won't have to go looking outside their own borders to find help and healing because we'll be able to do the researching for them.
