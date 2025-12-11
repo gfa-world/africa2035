@@ -1,5 +1,5 @@
 // Progress Circle Configuration
-const PROGRESS_PERCENTAGE = 14; // Change this value to update the progress
+const PROGRESS_PERCENTAGE = 15; // Change this value to update the progress
 
 function createProgressCircle(canvasId, textId, percentage) {
     const canvas = document.getElementById(canvasId);
