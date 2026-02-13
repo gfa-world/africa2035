@@ -595,6 +595,13 @@ img {
   margin-bottom: 0;
 }
 
+/* Line break after comma in footer for desktop */
+@media (min-width: 768px) {
+  .footer p wbr {
+    display: block;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .banner-section {
